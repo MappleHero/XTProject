@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XTNetworkConfig.h"
+#import "XTLog.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[XTNetworkConfig defaultConfig] loadConfig];
+    [XTLogConfig loadConfig];
+    XTLog(XTL_INFO_LVL, @"Deleagete", @"Finish lanuch");
     return YES;
 }
 
