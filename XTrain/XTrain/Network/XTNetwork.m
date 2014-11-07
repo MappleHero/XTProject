@@ -63,7 +63,9 @@ static XTNetwork *_defaultManager = nil;
     // Validate request
     if (![self validateRequest:request error:&error])
     {
-        request.callback(nil, error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            request.callback(nil, error);
+        });
         return;
     }
     
