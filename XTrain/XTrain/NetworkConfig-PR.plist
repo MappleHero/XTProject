@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HTTP</key>
+	<string>http://m-p.tuniu.com/iapi/appserver/view/</string>
+	<key>DynamicHTTP</key>
+	<string>http://dynamic.m-p.tuniu.com/iapi/appserver/view/</string>
+	<key>HTTPS</key>
+	<string>http://m-p.tuniu.com/iapi/appserver/view/</string>
+	<key>SSO</key>
+	<string>http://dynamic.m-p.tuniu.com/sso/app/sid/</string>
+	<key>CHAT</key>
+	<string>http://m-p.tuniu.com/iapi/appserver/view/</string>
+</dict>
+</plist>
