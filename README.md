@@ -6,3 +6,5 @@ XTProjiect
 * `XTNetworkConfig`网络配置类，存放一些网络请求的通用配置
 * `XTNetworkCommon`网络框架的一些定义
 
+##日志
+`XTLog`日志
