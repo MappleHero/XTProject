@@ -11,6 +11,8 @@
 FOUNDATION_EXPORT NSString *const XTRequestErrorDomain;
 FOUNDATION_EXPORT NSString *const XTResponseErrorDomain;
 
+#define ONE_DAY 60*60*24
+
 typedef NS_ENUM(NSInteger, XTHTTPRequestType)
 {
     XTHTTPRequestTypeHTTP = 0, // HTTP请求
@@ -33,8 +35,3 @@ typedef NS_ENUM(NSInteger, XTHTTPMethodType)
     XTHTTPMethodPOST, // POST
     XTHTTPMethodDELETE // DELETE
 };
-
-/**
- *  请求回调信息
- */
-typedef void(^XTHTTPRequestCallback)(id responseObject, NSError *error);

@@ -17,6 +17,7 @@ FOUNDATION_EXPORT NSString *const XTNetworkConfigUrlChanged;
 @property (nonatomic, strong, readonly) NSString *HTTPSUrlString;
 @property (nonatomic, strong, readonly) NSString *SSOUrlString;
 @property (nonatomic, strong, readonly) NSString *chatUrlString;
+@property (nonatomic, strong) NSString *HTTPCachePath;
 
 /**
  *  单例

@@ -10,6 +10,7 @@
 #import "XTNetwork.h"
 #import "XTNetworkRequest.h"
 #import "XTVersion.h"
+#import "XTLog.h"
 
 @interface ViewController ()
 
@@ -43,10 +44,10 @@
     request.requestType = XTHTTPRequestTypeDynamicHTTP;
     request.methodType = XTHTTPMethodGET;
     request.responseObjectClassName = NSStringFromClass([XTVersion class]);
-    request.callback = ^(id responseObject, NSError *error){
-        NSLog(@"%@ %@", responseObject, error);
+    request.callback = ^(XTNetworkResponse *response){
+        XTLog(XTL_VERBOSE_LVL, @"ViewController", @"Response : %@", response);
     };
-    [[XTNetwork defaultManager] sendRequest:request];
+    [request start];
 }
 
 

@@ -7,6 +7,10 @@
 //
 
 #import "XTNetworkRequest.h"
+#import <AFNetworking/AFHTTPRequestOperation.h>
+#import "XTNetwork.h"
+#import "XTEncodeUtil.h"
+#import "NSString+Useful.h"
 
 NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
 
@@ -25,6 +29,36 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
         
     }
     return self;
+}
+
+- (void)start
+{
+    [[XTNetwork defaultManager] addRequest:self];
+}
+
+- (void)stop
+{
+    self.callback = nil;
+    [[XTNetwork defaultManager] removeRequest:self];
+}
+
+- (NSString *)cacheFileName
+{
+    NSMutableString *fileName = [NSMutableString string];
+    [fileName appendString:self.path];
+    
+    if ([self.params count] > 0)
+    {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.params
+                                                           options:0
+                                                             error:nil];
+        if (jsonData)
+        {
+            [fileName appendString:[XTEncodeUtil MD5Hash:jsonData]];
+        }
+    }
+    
+    return [fileName md5String];
 }
 
 @end

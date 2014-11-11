@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "XTNetworkConfig.h"
 #import "XTLog.h"
+#import "XTUtil.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[XTNetworkConfig defaultConfig] loadConfig];
+    [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCachePath"];
     [XTLogConfig loadConfig];
-    XTLog(XTL_INFO_LVL, @"Deleagete", @"Finish lanuch");
+    
+    XTLog(XTL_ERROR_LVL, @"Doc path:%@", [XTUtil appDocPath]);
     return YES;
 }
 

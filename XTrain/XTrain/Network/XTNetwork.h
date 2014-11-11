@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XTNetworkRequest.h"
+#import "XTNetworkResponse.h"
 
 @interface XTNetwork : NSObject
 
@@ -19,10 +20,17 @@
 + (XTNetwork *)defaultManager;
 
 /**
- *  发送请求
+ *  添加请求
  *
  *  @param request 请求对象
  */
-- (void)sendRequest:(XTNetworkRequest *)request;
+- (void)addRequest:(XTNetworkRequest *)request;
+
+/**
+ *  取消请求
+ *
+ *  @param request 请求对象
+ */
+- (void)removeRequest:(XTNetworkRequest *)request;
 
 @end

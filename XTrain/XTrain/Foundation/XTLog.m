@@ -10,12 +10,13 @@
 #import <DDLog.h>
 #import <DDTTYLogger.h>
 #import <DDFileLogger.h>
+#import "XTUtil.h"
 
 int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 void XTLogout(XTLogLevel level, const char *file, int line, const char *func, NSString *category, NSString *fmt, ...)
 {
-    va_list	ap;
+    va_list ap;
     va_start(ap, fmt);
     NSString *content = [[NSString alloc] initWithFormat:fmt arguments:ap];
     NSString *logContent = [NSString stringWithFormat:@"[%@:%d][%s][%@]",
@@ -50,7 +51,7 @@ void XTLogout(XTLogLevel level, const char *file, int line, const char *func, NS
 + (void)loadConfig
 {
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"log"];
+    NSString *directory = [[XTUtil appDocPath] stringByAppendingPathComponent:@"log"];
     DDLogFileManagerDefault *fileManager = [[DDLogFileManagerDefault alloc] initWithLogsDirectory:directory];
     DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:fileManager];
     [DDLog addLogger:fileLogger withLevel:LOG_LEVEL_ERROR];

@@ -36,6 +36,19 @@ static XTNetworkConfig *_defaultConfig = nil;
     [self configURLWithDictonary:dictionary];
 }
 
+- (void)setHTTPCachePath:(NSString *)HTTPCachePath
+{
+    _HTTPCachePath = HTTPCachePath;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:HTTPCachePath isDirectory:nil])
+    {
+        [[NSFileManager defaultManager] createDirectoryAtPath:HTTPCachePath
+                                  withIntermediateDirectories:NO
+                                                   attributes:nil
+                                                        error:nil];
+    }
+}
+
 - (void)configURLWithDictonary:(NSDictionary *)dictionary
 {
     _HTTPSUrlString = dictionary[@"HTTP"];

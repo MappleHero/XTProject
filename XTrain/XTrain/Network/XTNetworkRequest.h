@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "XTNetworkCommon.h"
+#import "XTNetworkResponse.h"
+
+@class AFHTTPRequestOperation;
+
+/**
+ *  请求回调信息
+ */
+typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
 
 @interface XTNetworkRequest : NSObject
 
@@ -47,5 +55,26 @@
  *  响应回调
  */
 @property (nonatomic, copy) XTHTTPRequestCallback callback;
+/**
+ *  operation对象
+ */
+@property (nonatomic, strong) AFHTTPRequestOperation *operation;
+
+/**
+ *  启动
+ */
+- (void)start;
+
+/**
+ *  停止
+ */
+- (void)stop;
+
+/**
+ *  获取缓存文件名
+ *
+ *  @return 缓存文件名
+ */
+- (NSString *)cacheFileName;
 
 @end
