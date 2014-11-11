@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[XTNetworkConfig defaultConfig] loadConfig];
-    [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCachePath"];
+    [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
     [XTLogConfig loadConfig];
     
     XTLog(XTL_ERROR_LVL, @"Doc path:%@", [XTUtil appDocPath]);

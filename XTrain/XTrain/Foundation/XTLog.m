@@ -30,16 +30,16 @@ void XTLogout(XTLogLevel level, const char *file, int line, const char *func, NS
             DDLogVerbose(@"%@[verbose] %@", logContent, content);
             break;
         case XTLogLevelDebug:
-            DDLogVerbose(@"%@[Debug] %@", logContent, content);
+            DDLogDebug(@"%@[Debug] %@", logContent, content);
             break;
         case XTLogLevelInfo:
-            DDLogVerbose(@"%@[Info] %@", logContent, content);
+            DDLogInfo(@"%@[Info] %@", logContent, content);
             break;
         case XTLogLevelWarn:
-            DDLogVerbose(@"%@[Warn] %@", logContent, content);
+            DDLogWarn(@"%@[Warn] %@", logContent, content);
             break;
         case XTLogLevelError:
-            DDLogVerbose(@"%@[Error] %@", logContent, content);
+            DDLogError(@"%@[Error] %@", logContent, content);
             break;
         default:
             break;
