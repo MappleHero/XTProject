@@ -10,10 +10,10 @@ XTProjiect
 **1. 初始化配置**
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions { 
+	...
 	// 加载URL配置
     [[XTNetworkConfig defaultConfig] loadConfig];
-   
-   // 配置缓存路径
+   	// 配置缓存路径
     [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
     ...
 }
@@ -44,10 +44,9 @@ request.callback = ^(XTNetworkResponse *response){
 ```
 ...
 if (![self validateRequest:request error:&error])
-{
-		...
-		XTLog(XTNETWORK_LOG_ERROR, @"Request:{%@} invalid!", request);
-		
-		...
+{	
+	...
+	XTLog(XTNETWORK_LOG_ERROR, @"Request:{%@} invalid!", request);
+	...
 }
 ```
