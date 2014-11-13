@@ -8,6 +8,8 @@
 
 #import "XTNetworkResponse.h"
 
+NSString *const XTResponseErrorDomain = @"com.xt.RESPONSEERROR";
+
 @implementation XTNetworkResponse
 
 - (NSString *)description

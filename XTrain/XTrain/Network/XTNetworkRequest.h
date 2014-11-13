@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString *const XTRequestErrorDomain;
+
 @class XTNetworkResponse;
 
 #define ONE_DAY 60*60*24

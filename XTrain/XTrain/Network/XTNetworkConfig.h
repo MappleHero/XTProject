@@ -8,15 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXPORT NSString *const XTNetworkConfigUrlChanged;
-
 @interface XTNetworkConfig : NSObject
 
-@property (nonatomic, strong, readonly) NSString *HTTPUrlString;
-@property (nonatomic, strong, readonly) NSString *dynamicHTTPUrlString;
-@property (nonatomic, strong, readonly) NSString *HTTPSUrlString;
-@property (nonatomic, strong, readonly) NSString *SSOUrlString;
-@property (nonatomic, strong, readonly) NSString *chatUrlString;
 @property (nonatomic, strong) NSString *HTTPCachePath;
 
 /**
@@ -25,17 +18,5 @@ FOUNDATION_EXPORT NSString *const XTNetworkConfigUrlChanged;
  *  @return 单例对象
  */
 + (XTNetworkConfig *)defaultConfig;
-
-/**
- *  加载配置
- */
-- (void)loadConfig;
-
-/**
- *  配置URL，支持运行时切换环境
- *
- *  @param dictionary URL字典
- */
-- (void)configURLWithDictonary:(NSDictionary *)dictionary;
 
 @end

@@ -7,9 +7,6 @@
 //
 
 #import "XTNetworkConfig.h"
-#import "XTNetworkCommon.h"
-
-NSString *const XTNetworkConfigUrlChanged = @"XTNetworkConfigUrlChanged";
 
 @implementation XTNetworkConfig
 
@@ -24,18 +21,6 @@ static XTNetworkConfig *_defaultConfig = nil;
     return _defaultConfig;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)zone
-{
-    return [self defaultConfig];
-}
-
-- (void)loadConfig
-{
-    NSString *file = [[NSBundle mainBundle] pathForResource:NET_CONFIG_FILE_NAME  ofType:@"plist"];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:file];
-    [self configURLWithDictonary:dictionary];
-}
-
 - (void)setHTTPCachePath:(NSString *)HTTPCachePath
 {
     _HTTPCachePath = HTTPCachePath;
@@ -47,18 +32,6 @@ static XTNetworkConfig *_defaultConfig = nil;
                                                    attributes:nil
                                                         error:nil];
     }
-}
-
-- (void)configURLWithDictonary:(NSDictionary *)dictionary
-{
-    _HTTPSUrlString = dictionary[@"HTTP"];
-    _dynamicHTTPUrlString = dictionary[@"DynamicHTTP"];
-    _HTTPSUrlString = dictionary[@"HTTPS"];
-    _SSOUrlString = dictionary[@"SSO"];
-    _chatUrlString = dictionary[@"CHAT"];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:XTNetworkConfigUrlChanged
-                                                        object:nil];
 }
 
 @end

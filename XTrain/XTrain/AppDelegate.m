@@ -10,6 +10,9 @@
 #import "XTNetworkConfig.h"
 #import "XTLog.h"
 #import "XTUtil.h"
+#import "TNServerURLConfig.h"
+#import "XTNetworkEngine.h"
+
 
 @interface AppDelegate ()
 
@@ -19,10 +22,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    [[XTNetworkConfig defaultConfig] loadConfig];
-    [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
+    // Log config
     [XTLogConfig loadConfig];
+    // URL config
+    [[TNServerURLConfig defaultConfig] loadConfig];
+    // Cache path
+    [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
+    // Register client
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPUrlString];
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].dynamicHTTPUrlString];
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPSUrlString];
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].chatUrlString];
     
     XTLog(XTL_VERBOSE_LVL, @"App Delegate", [XTUtil appDocPath]);
     return YES;

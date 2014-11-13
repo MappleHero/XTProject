@@ -12,12 +12,13 @@
 		B50AE6B61A0B935200A2D201 /* XTEncodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B50AE6B51A0B935200A2D201 /* XTEncodeUtil.m */; };
 		B539ABD41A11F7650086FAC6 /* XTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B539ABD31A11F7650086FAC6 /* XTUtil.m */; };
 		B539ABD71A11F9A10086FAC6 /* NSString+Useful.m in Sources */ = {isa = PBXBuildFile; fileRef = B539ABD61A11F9A10086FAC6 /* NSString+Useful.m */; };
+		B553D6781A14CE2A00B2C6B0 /* RayWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = B553D6741A14CE2A00B2C6B0 /* RayWeather.m */; };
+		B553D6791A14CE2A00B2C6B0 /* TNVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = B553D6771A14CE2A00B2C6B0 /* TNVersion.m */; };
+		B553D67C1A14CEE300B2C6B0 /* TNServerURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B553D67B1A14CEE300B2C6B0 /* TNServerURLConfig.m */; };
 		B571F93C1A0C634800E1C752 /* NetworkConfig-R.plist in Resources */ = {isa = PBXBuildFile; fileRef = B571F93B1A0C634800E1C752 /* NetworkConfig-R.plist */; };
 		B571F93E1A0C668500E1C752 /* NetworkConfig-PR.plist in Resources */ = {isa = PBXBuildFile; fileRef = B571F93D1A0C668500E1C752 /* NetworkConfig-PR.plist */; };
 		B571F9441A0C6B9D00E1C752 /* XTNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B571F9431A0C6B9D00E1C752 /* XTNetworkConfig.m */; };
 		B571F94F1A0CDA4F00E1C752 /* XTLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B571F94E1A0CDA4F00E1C752 /* XTLog.m */; };
-		B57C64381A14A3DA002FC459 /* TNVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = B57C64371A14A3DA002FC459 /* TNVersion.m */; };
-		B57C643B1A14A400002FC459 /* RayWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = B57C643A1A14A400002FC459 /* RayWeather.m */; };
 		B5F0373C1A0B117800BCF949 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F0373B1A0B117800BCF949 /* main.m */; };
 		B5F0373F1A0B117800BCF949 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F0373E1A0B117800BCF949 /* AppDelegate.m */; };
 		B5F037421A0B117800BCF949 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F037411A0B117800BCF949 /* ViewController.m */; };
@@ -53,17 +54,18 @@
 		B539ABD31A11F7650086FAC6 /* XTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTUtil.m; sourceTree = "<group>"; };
 		B539ABD51A11F9A10086FAC6 /* NSString+Useful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Useful.h"; sourceTree = "<group>"; };
 		B539ABD61A11F9A10086FAC6 /* NSString+Useful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Useful.m"; sourceTree = "<group>"; };
-		B571F9381A0C5F2D00E1C752 /* XTNetworkCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTNetworkCommon.h; sourceTree = "<group>"; };
+		B553D6731A14CE2900B2C6B0 /* RayWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RayWeather.h; sourceTree = "<group>"; };
+		B553D6741A14CE2A00B2C6B0 /* RayWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RayWeather.m; sourceTree = "<group>"; };
+		B553D6761A14CE2A00B2C6B0 /* TNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNVersion.h; sourceTree = "<group>"; };
+		B553D6771A14CE2A00B2C6B0 /* TNVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNVersion.m; sourceTree = "<group>"; };
+		B553D67A1A14CEE300B2C6B0 /* TNServerURLConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNServerURLConfig.h; sourceTree = "<group>"; };
+		B553D67B1A14CEE300B2C6B0 /* TNServerURLConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNServerURLConfig.m; sourceTree = "<group>"; };
 		B571F93B1A0C634800E1C752 /* NetworkConfig-R.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NetworkConfig-R.plist"; sourceTree = "<group>"; };
 		B571F93D1A0C668500E1C752 /* NetworkConfig-PR.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NetworkConfig-PR.plist"; sourceTree = "<group>"; };
 		B571F9421A0C6B9D00E1C752 /* XTNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkConfig.h; sourceTree = "<group>"; };
 		B571F9431A0C6B9D00E1C752 /* XTNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkConfig.m; sourceTree = "<group>"; };
 		B571F94B1A0CD37E00E1C752 /* XTLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTLog.h; sourceTree = "<group>"; };
 		B571F94E1A0CDA4F00E1C752 /* XTLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTLog.m; sourceTree = "<group>"; };
-		B57C64361A14A3DA002FC459 /* TNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNVersion.h; sourceTree = "<group>"; };
-		B57C64371A14A3DA002FC459 /* TNVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNVersion.m; sourceTree = "<group>"; };
-		B57C64391A14A400002FC459 /* RayWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RayWeather.h; sourceTree = "<group>"; };
-		B57C643A1A14A400002FC459 /* RayWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RayWeather.m; sourceTree = "<group>"; };
 		B5F037361A0B117800BCF949 /* XTrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XTrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F0373A1A0B117800BCF949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5F0373B1A0B117800BCF949 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,7 +126,6 @@
 				B50AE6AB1A0B933D00A2D201 /* XTNetworkEngine.m */,
 				B50AE6AC1A0B933D00A2D201 /* XTNetworkRequest.h */,
 				B50AE6AD1A0B933D00A2D201 /* XTNetworkRequest.m */,
-				B571F9381A0C5F2D00E1C752 /* XTNetworkCommon.h */,
 				B571F9421A0C6B9D00E1C752 /* XTNetworkConfig.h */,
 				B571F9431A0C6B9D00E1C752 /* XTNetworkConfig.m */,
 				B5F314701A10838C003142BD /* XTNetworkResponse.h */,
@@ -148,15 +149,24 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		B57C64351A14A3DA002FC459 /* Model */ = {
+		B553D6721A14CE2900B2C6B0 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				B57C64361A14A3DA002FC459 /* TNVersion.h */,
-				B57C64371A14A3DA002FC459 /* TNVersion.m */,
-				B57C64391A14A400002FC459 /* RayWeather.h */,
-				B57C643A1A14A400002FC459 /* RayWeather.m */,
+				B553D6731A14CE2900B2C6B0 /* RayWeather.h */,
+				B553D6741A14CE2A00B2C6B0 /* RayWeather.m */,
 			);
-			path = Model;
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		B553D6751A14CE2A00B2C6B0 /* Tuniu */ = {
+			isa = PBXGroup;
+			children = (
+				B553D6761A14CE2A00B2C6B0 /* TNVersion.h */,
+				B553D6771A14CE2A00B2C6B0 /* TNVersion.m */,
+				B553D67A1A14CEE300B2C6B0 /* TNServerURLConfig.h */,
+				B553D67B1A14CEE300B2C6B0 /* TNServerURLConfig.m */,
+			);
+			path = Tuniu;
 			sourceTree = "<group>";
 		};
 		B5F0372D1A0B117800BCF949 = {
@@ -182,9 +192,10 @@
 		B5F037381A0B117800BCF949 /* XTrain */ = {
 			isa = PBXGroup;
 			children = (
-				B57C64351A14A3DA002FC459 /* Model */,
 				B50AE6B31A0B935200A2D201 /* Foundation */,
 				B50AE6A51A0B933D00A2D201 /* Network */,
+				B553D6721A14CE2900B2C6B0 /* Demo */,
+				B553D6751A14CE2A00B2C6B0 /* Tuniu */,
 				B5F0373D1A0B117800BCF949 /* AppDelegate.h */,
 				B5F0373E1A0B117800BCF949 /* AppDelegate.m */,
 				B5F037401A0B117800BCF949 /* ViewController.h */,
@@ -362,13 +373,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B553D67C1A14CEE300B2C6B0 /* TNServerURLConfig.m in Sources */,
 				B571F9441A0C6B9D00E1C752 /* XTNetworkConfig.m in Sources */,
+				B553D6791A14CE2A00B2C6B0 /* TNVersion.m in Sources */,
 				B5F037421A0B117800BCF949 /* ViewController.m in Sources */,
 				B571F94F1A0CDA4F00E1C752 /* XTLog.m in Sources */,
-				B57C643B1A14A400002FC459 /* RayWeather.m in Sources */,
+				B553D6781A14CE2A00B2C6B0 /* RayWeather.m in Sources */,
 				B539ABD41A11F7650086FAC6 /* XTUtil.m in Sources */,
 				B5F0373F1A0B117800BCF949 /* AppDelegate.m in Sources */,
-				B57C64381A14A3DA002FC459 /* TNVersion.m in Sources */,
 				B5F0373C1A0B117800BCF949 /* main.m in Sources */,
 				B5F314721A10838C003142BD /* XTNetworkResponse.m in Sources */,
 				B539ABD71A11F9A10086FAC6 /* NSString+Useful.m in Sources */,
