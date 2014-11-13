@@ -1,18 +1,16 @@
 XTProject
 ==========
 ##网络
-* `XTNetwork`HTTP请求底层能力处理类，封装了请求参数构造和响应数据的处理，将返回结果json串序列化成`MTLModel`的对象，处理请求的缓存控制逻辑，服务对象为业务处理类，某种情况下为了方便处理，UI也可直接调用
-* `XTNetworkRequest`构造请求对象，封装请求参数，定义响应处理逻辑
+* `XTNetwork`HTTP请求底层能力处理类，封装了请求参数构造和响应数据的处理，处理请求的缓存控制逻辑，与`XTNetworkRequest`配合使用，最好不要直接调用
+* `XTNetworkRequest`构造请求对象，封装请求参数，子类继承该类，配置对应的参数
+* `XTNetworkResponse`构造响应对象，封装响应的状态码，responseData，responseString等，子类可覆写该方法实现自己的有业务处理
 * `XTNetworkConfig`网络配置类，存放一些网络请求的通用配置
-* `XTNetworkCommon`网络框架的一些定义
 
 ####使用方法
 **1. 初始化配置**
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions { 
 	...
-	// 加载URL配置
-    [[XTNetworkConfig defaultConfig] loadConfig];
    	// 配置缓存路径
     [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
     ...
@@ -21,17 +19,15 @@ XTProject
 
 **2. 发送请求**
 ```
-XTNetworkRequest *request = [[XTNetworkRequest alloc] init];
-request.path = @"Path";
-request.params = @{...};
-request.requestType = XTHTTPRequestTypeDynamicHTTP;
-request.methodType = XTHTTPMethodGET;
-request.responseObjectClassName = NSStringFromClass([MTLModel class]);
-request.callback = ^(XTNetworkResponse *response){
-    ...
-};
-[request start];
+RayWeatherRequest *request = [[RayWeatherRequest alloc] init];
+[[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[request baseURLString]];
+request.responseClassName = NSStringFromClass([RayWeatherResponse class]);
+[request startWithCallback:^(XTNetworkResponse *response) {
+    RayWeatherResponse *weatherResponse = (RayWeatherResponse *)response;
+    XTLog(XTL_INFO_LVL, @"ViewController", @"Response:%@ weather:%@", weatherResponse, weatherResponse.weather);
+}];
 ```
+详细的代码请参考[RayWeather.m](https://github.com/wuwen1030/XTProject/blob/master/XTrain/XTrain/Model/RayWeather.m)
 ##日志
 `XTLog`日志
 
@@ -46,7 +42,7 @@ request.callback = ^(XTNetworkResponse *response){
 if (![self validateRequest:request error:&error])
 {	
 	...
-	XTLog(XTNETWORK_LOG_ERROR, @"Request:{%@} invalid!", request);
+	XTLog(XTL_INFO_LVL, @"ViewController", @"Response:%@ weather:%@", weatherResponse, weatherResponse.weather);
 	...
 }
 ```

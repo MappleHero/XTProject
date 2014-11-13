@@ -37,7 +37,6 @@
         RayWeatherResponse *weatherResponse = (RayWeatherResponse *)response;
         XTLog(XTL_INFO_LVL, @"ViewController", @"Response:%@ weather:%@", weatherResponse, weatherResponse.weather);
     }];
-    [request start];
 }
 
 - (IBAction)fetchVersionPressed:(id)sender
