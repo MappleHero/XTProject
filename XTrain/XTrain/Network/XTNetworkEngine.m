@@ -22,6 +22,8 @@
 @interface XTNetworkEngine ()
 
 @property (nonatomic, strong) NSMutableDictionary *managerDictionary;
+@property (nonatomic, assign) XTRequestID maxRequestID;
+@property (nonatomic, strong) NSMutableDictionary *operationDictionary;
 
 @end
 
@@ -52,6 +54,9 @@ static XTNetworkEngine *_defaultEngine = nil;
     if (self = [super init])
     {
         _managerDictionary = [NSMutableDictionary dictionary];
+        _operationDictionary = [NSMutableDictionary dictionary];
+        // 999 ^_^
+        _maxRequestID = 999;
     }
     return self;
 }
@@ -66,6 +71,7 @@ static XTNetworkEngine *_defaultEngine = nil;
 
 - (void)addRequest:(XTNetworkRequest *)request
 {
+    request.requestID = ++self.maxRequestID;
     NSError *error = nil;
     XTLog(XTNETWORK_LOG_VERBOSE, @"Add request:{%@}", request);
     // Validate request
@@ -147,6 +153,9 @@ static XTNetworkEngine *_defaultEngine = nil;
                                              {
                                                  [self cacheString:operation.responseString forRequest:request];
                                              }
+                                             
+                                             // Dettach operation with requestID
+                                             [self.operationDictionary removeObjectForKey:@(request.requestID)];
                                          }
                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                              XTNetworkResponse *response = [self responseWithRequest:request];
@@ -157,15 +166,21 @@ static XTNetworkEngine *_defaultEngine = nil;
                                              {
                                                  request.callback(response);
                                              }
+                                             
+                                             // Dettach operation with requestID
+                                             [self.operationDictionary removeObjectForKey:@(request.requestID)];
                                          }];
-    request.operation = operation;
+    // Attach operation with requestID
+    self.operationDictionary[@(request.requestID)] = operation;
     [manager.operationQueue addOperation:operation];
 }
 
 - (void)removeRequest:(XTNetworkRequest *)request
 {
-    XTLog(XTNETWORK_LOG_VERBOSE, @"Remove request:{%@}", request);
-    [request.operation cancel];
+    XTLog(XTNETWORK_LOG_INFO, @"Remove request:{%@}", request);
+    AFHTTPRequestOperation *operation = self.operationDictionary[@(request.requestID)];
+    [operation cancel];
+    [self.operationDictionary removeObjectForKey:@(request.requestID)];
 }
 
 - (XTNetworkResponse *)responseWithRequest:(XTNetworkRequest *)request

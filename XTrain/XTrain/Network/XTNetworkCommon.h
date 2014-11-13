@@ -10,19 +10,3 @@
 
 FOUNDATION_EXPORT NSString *const XTRequestErrorDomain;
 FOUNDATION_EXPORT NSString *const XTResponseErrorDomain;
-
-#define ONE_DAY 60*60*24
-
-typedef NS_ENUM(NSInteger, XTHTTPCacheStrategy)
-{
-    XTHTTPCacheStrategyCacheAndNet = 0, // 先返回缓存，再返回
-    XTHTTPCacheStrategyCacheOnly, // 只返回缓存
-    XTHTTPCacheStrategyNetOnly // 只返回网络数据
-};
-
-typedef NS_ENUM(NSInteger, XTHTTPMethodType)
-{
-    XTHTTPMethodGET = 0, // GET
-    XTHTTPMethodPOST, // POST
-    XTHTTPMethodDELETE // DELETE
-};

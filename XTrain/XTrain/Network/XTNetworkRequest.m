@@ -18,8 +18,8 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"XTNetworkRequest:path[%@]\n,params:[%@]",
-            [self path],[self params]];
+    return [NSString stringWithFormat:@"XTNetworkRequest:requestID:[%ld] path:[%@]\n,params:[%@]",
+            (long)self.requestID, [self path],[self params]];
 }
 
 - (id)init

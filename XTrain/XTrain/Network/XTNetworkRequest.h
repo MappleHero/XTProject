@@ -7,10 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XTNetworkCommon.h"
-#import "XTNetworkResponse.h"
 
-@class AFHTTPRequestOperation;
+@class XTNetworkResponse;
+
+#define ONE_DAY 60*60*24
+
+typedef NSInteger XTRequestID;
+
+typedef NS_ENUM(NSInteger, XTHTTPCacheStrategy)
+{
+    XTHTTPCacheStrategyCacheAndNet = 0, // 先返回缓存，再返回
+    XTHTTPCacheStrategyCacheOnly, // 只返回缓存
+    XTHTTPCacheStrategyNetOnly // 只返回网络数据
+};
+
+typedef NS_ENUM(NSInteger, XTHTTPMethodType)
+{
+    XTHTTPMethodGET = 0, // GET
+    XTHTTPMethodPOST, // POST
+    XTHTTPMethodDELETE // DELETE
+};
 
 /**
  *  请求回调信息
@@ -32,13 +48,13 @@ typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
  */
 @property (nonatomic, copy) XTHTTPRequestCallback callback;
 /**
- *  operation对象
- */
-@property (nonatomic, strong) AFHTTPRequestOperation *operation;
-/**
  *  请求响应的response类名，必须是XTNetworkResponse的子类
  */
 @property (nonatomic, copy) NSString *responseClassName;
+/**
+ *  请求ID
+ */
+@property (nonatomic, assign) XTRequestID requestID;
 
 #pragma mark - action
 
