@@ -12,8 +12,17 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"success:[%d] HTTPStatusCode[%ld] fromCache[%d] JSONString[%@] error[%@]", self.success,(long)self.HTTPStatusCode,
-            self.fromCache, self.JSONString, self.error];
+    return [NSString stringWithFormat:@"success:[%d] HTTPStatusCode:[%ld] fromCache:[%d] responseString:[%@] error:[%@]",
+            self.success,
+            (long)self.HTTPStatusCode,
+            self.fromCache,
+            self.responseString,
+            self.error];
+}
+
+- (void)handleBusiness
+{
+    // Subclass override
 }
 
 @end

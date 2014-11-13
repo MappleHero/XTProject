@@ -8,7 +8,7 @@
 
 #import "XTNetworkRequest.h"
 #import <AFNetworking/AFHTTPRequestOperation.h>
-#import "XTNetwork.h"
+#import "XTNetworkEngine.h"
 #import "XTEncodeUtil.h"
 #import "NSString+Useful.h"
 
@@ -19,7 +19,7 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"XTNetworkRequest:path[%@]\n,params:[%@]",
-            self.path,self.params];
+            [self path],[self params]];
 }
 
 - (id)init
@@ -31,21 +31,61 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
     return self;
 }
 
+#pragma mark - action
+
 - (void)start
 {
-    [[XTNetwork defaultManager] addRequest:self];
+    [[XTNetworkEngine defaultEngine] addRequest:self];
+}
+
+- (void)startWithCallback:(XTHTTPRequestCallback)callback
+{
+    self.callback = callback;
+    [self start];
 }
 
 - (void)stop
 {
     self.callback = nil;
-    [[XTNetwork defaultManager] removeRequest:self];
+    [[XTNetworkEngine defaultEngine] removeRequest:self];
+}
+
+#pragma mark - config
+
+- (NSString *)baseURLString
+{
+    // Subclass override
+    return nil;
+}
+
+- (NSString *)path
+{
+    // Subclass override
+    return nil;
+}
+
+- (NSDictionary *)headers
+{
+    // Subclass override
+    return nil;
+}
+
+- (NSDictionary *)params
+{
+    // Subclass override
+    return nil;
+}
+
+- (NSTimeInterval )cacheInterval
+{
+    // Subclass override
+    return 0.0f;
 }
 
 - (NSString *)cacheFileName
 {
     NSMutableString *fileName = [NSMutableString string];
-    [fileName appendString:self.path];
+    [fileName appendString:[self path]];
     
     if ([self.params count] > 0)
     {

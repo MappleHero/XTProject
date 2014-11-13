@@ -20,37 +20,13 @@ typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
 @interface XTNetworkRequest : NSObject
 
 /**
- *  请求类型
- */
-@property (nonatomic, assign) XTHTTPRequestType requestType;
-/**
- *  请求路径
- */
-@property (nonatomic, copy) NSString *path;
-/**
  *  请求方式
  */
 @property (nonatomic, assign) XTHTTPMethodType methodType;
 /**
- *  请求参数
- */
-@property (nonatomic, strong) NSDictionary *params;
-/**
- *  请求头域
- */
-@property (nonatomic, strong) NSDictionary *headers;
-/**
  *  缓存策略
  */
 @property (nonatomic, assign) XTHTTPCacheStrategy cacheStrategy;
-/**
- *  缓存时长
- */
-@property (nonatomic, assign) NSTimeInterval cacheInterval;
-/**
- *  返回数据的类，类必须从MTLModel继承，并且实现MTLJSONSerializing协议
- */
-@property (nonatomic, copy) NSString *responseObjectClassName;
 /**
  *  响应回调
  */
@@ -59,6 +35,12 @@ typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
  *  operation对象
  */
 @property (nonatomic, strong) AFHTTPRequestOperation *operation;
+/**
+ *  请求响应的response类名，必须是XTNetworkResponse的子类
+ */
+@property (nonatomic, copy) NSString *responseClassName;
+
+#pragma mark - action
 
 /**
  *  启动
@@ -66,9 +48,53 @@ typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
 - (void)start;
 
 /**
+ *  启动
+ *
+ *  @param callback 响应回调
+ */
+- (void)startWithCallback:(XTHTTPRequestCallback)callback;
+
+/**
  *  停止
  */
 - (void)stop;
+
+#pragma mark - config
+
+/**
+ *  获取服务器地址
+ *
+ *  @return 服务器地址
+ */
+- (NSString *)baseURLString;
+
+/**
+ *  获取请求路径
+ *
+ *  @return 请求路径
+ */
+- (NSString *)path;
+
+/**
+ *  获取请求头域
+ *
+ *  @return 请求头域
+ */
+- (NSDictionary *)headers;
+
+/**
+ *  获取请求参数
+ *
+ *  @return 请求参数
+ */
+- (NSDictionary *)params;
+
+/**
+ *  获取缓存时长
+ *
+ *  @return 缓存时长
+ */
+- (NSTimeInterval )cacheInterval;
 
 /**
  *  获取缓存文件名

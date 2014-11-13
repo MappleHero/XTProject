@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,18 +18,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2n-Jt-LGj">
-                                <rect key="frame" x="262" y="20" width="76" height="30"/>
-                                <state key="normal" title="Fetch Json">
+                                <rect key="frame" x="16" y="20" width="115" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="7X4-eR-lCP"/>
+                                </constraints>
+                                <state key="normal" title="Fetch Weather">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="fetchJsonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZXk-FY-cc0"/>
+                                    <action selector="fetchWeatherPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="K5b-06-6d7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V2n-Jt-LGj" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qXh-75-mgy"/>
+                            <constraint firstItem="V2n-Jt-LGj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pmV-4S-dcr"/>
                             <constraint firstItem="V2n-Jt-LGj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="w34-vq-ZtC"/>
                         </constraints>
                     </view>

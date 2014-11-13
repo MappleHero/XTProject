@@ -24,7 +24,7 @@
     [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
     [XTLogConfig loadConfig];
     
-    XTLog(XTL_ERROR_LVL, @"Doc path:%@", [XTUtil appDocPath]);
+    XTLog(XTL_VERBOSE_LVL, @"App Delegate", [XTUtil appDocPath]);
     return YES;
 }
 
