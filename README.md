@@ -29,7 +29,7 @@ request.responseClassName = NSStringFromClass([RayWeatherResponse class]);
     XTLog(XTL_INFO_LVL, @"ViewController", @"Response:%@ weather:%@", weatherResponse, weatherResponse.weather);
 }];
 ```
-详细的代码请参考[RayWeather.m](https://github.com/wuwen1030/XTProject/blob/master/XTrain/XTrain/Model/RayWeather.m)
+详细的代码请参考[RayWeather.m](https://github.com/wuwen1030/XTProject/blob/master/XTrain/XTrain/Demo/RayWeather.m)
 ##日志
 `XTLog`日志
 
