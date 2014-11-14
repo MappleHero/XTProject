@@ -37,11 +37,11 @@ static TNServerURLConfig *_defaultConfig = nil;
 
 - (void)configURLWithDictonary:(NSDictionary *)dictionary
 {
-    _HTTPUrlString = dictionary[@"HTTP"];
-    _dynamicHTTPUrlString = dictionary[@"DynamicHTTP"];
-    _HTTPSUrlString = dictionary[@"HTTPS"];
-    _SSOUrlString = dictionary[@"SSO"];
-    _chatUrlString = dictionary[@"CHAT"];
+    _HTTPURLString = dictionary[@"HTTP"];
+    _dynamicHTTPURLString = dictionary[@"DynamicHTTP"];
+    _HTTPSURLString = dictionary[@"HTTPS"];
+    _SSOURLString = dictionary[@"SSO"];
+    _chatURLString = dictionary[@"CHAT"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:XTNetworkConfigUrlChanged
                                                         object:nil];

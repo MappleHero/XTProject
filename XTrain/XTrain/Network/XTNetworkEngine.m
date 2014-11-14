@@ -128,10 +128,14 @@ static XTNetworkEngine *_defaultEngine = nil;
             break;
     }
     
-    NSURLRequest *urlRequest = [manager.requestSerializer requestWithMethod:methodString
-                                                                  URLString:[[NSURL URLWithString:request.path relativeToURL:manager.baseURL] absoluteString]
-                                                                 parameters:request.params
-                                                                      error:nil];
+    NSMutableURLRequest *urlRequest = [manager.requestSerializer requestWithMethod:methodString
+                                                                         URLString:[[NSURL URLWithString:request.path relativeToURL:manager.baseURL] absoluteString]
+                                                                        parameters:request.params
+                                                                             error:nil];
+    if ([request requestURLString].length > 0) // Request custom the url string
+    {
+        urlRequest.URL = [NSURL URLWithString:[request requestURLString]];
+    }
 
     AFHTTPRequestOperation *operation = [manager
                                          HTTPRequestOperationWithRequest:urlRequest

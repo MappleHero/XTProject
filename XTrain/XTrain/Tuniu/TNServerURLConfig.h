@@ -14,11 +14,11 @@ FOUNDATION_EXPORT NSString *const TNServerUrlChanged;
 
 @interface TNServerURLConfig : NSObject
 
-@property (nonatomic, strong, readonly) NSString *HTTPUrlString;
-@property (nonatomic, strong, readonly) NSString *dynamicHTTPUrlString;
-@property (nonatomic, strong, readonly) NSString *HTTPSUrlString;
-@property (nonatomic, strong, readonly) NSString *SSOUrlString;
-@property (nonatomic, strong, readonly) NSString *chatUrlString;
+@property (nonatomic, strong, readonly) NSString *HTTPURLString;
+@property (nonatomic, strong, readonly) NSString *dynamicHTTPURLString;
+@property (nonatomic, strong, readonly) NSString *HTTPSURLString;
+@property (nonatomic, strong, readonly) NSString *SSOURLString;
+@property (nonatomic, strong, readonly) NSString *chatURLString;
 
 /**
  *  单例

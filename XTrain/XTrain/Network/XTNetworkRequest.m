@@ -76,6 +76,12 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
     return nil;
 }
 
+- (NSString *)requestURLString
+{
+    // Subclass override
+    return nil;
+}
+
 - (NSTimeInterval )cacheInterval
 {
     // Subclass override
@@ -84,6 +90,7 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
 
 - (NSString *)cacheFileName
 {
+    // TODO:Validate base url, path ...
     NSMutableString *fileName = [NSMutableString string];
     [fileName appendString:[self path]];
     

@@ -29,10 +29,10 @@
     // Cache path
     [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
     // Register client
-    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPUrlString];
-    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].dynamicHTTPUrlString];
-    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPSUrlString];
-    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].chatUrlString];
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPURLString];
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].dynamicHTTPURLString];
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPSURLString];
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].chatURLString];
     
     XTLog(XTL_VERBOSE_LVL, @"App Delegate", [XTUtil appDocPath]);
     return YES;

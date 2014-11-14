@@ -6,9 +6,12 @@
 //  Copyright (c) 2014年 XTeam. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import "TNBaseRequest.h"
+#import "TNBaseResponse.h"
 
-@interface XTSplash : MTLModel <MTLJSONSerializing>
+#pragma mark - Model
+
+@interface TNSplash : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, assign) NSInteger splashId;
 @property (nonatomic, strong) NSString *startDate;
@@ -17,13 +20,25 @@
 
 @end
 
-@interface XTVersion : MTLModel <MTLJSONSerializing>
+@interface TNVersion : MTLModel <MTLJSONSerializing>
 
 @property (assign, nonatomic) BOOL isUpgradeNeeded;
 @property (assign, nonatomic) BOOL isForceUpgrade;
 @property (strong, nonatomic) NSString *latestVersionNumber;
 @property (strong, nonatomic) NSArray *upgradeReason;
 @property (strong, nonatomic) NSString *upgradePath;
-@property (strong, nonatomic) XTSplash *splash;
+@property (strong, nonatomic) TNSplash *splash;
+
+@end
+
+#pragma mark - Request
+
+@interface TNVersionRequest : TNBaseRequest
+
+@end
+
+#pragma mark - Response
+
+@interface TNVersionResponse : TNBaseResponse
 
 @end

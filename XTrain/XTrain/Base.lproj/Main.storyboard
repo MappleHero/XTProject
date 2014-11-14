@@ -29,9 +29,21 @@
                                     <action selector="fetchWeatherPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="K5b-06-6d7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Z9-de-43F">
+                                <rect key="frame" x="16" y="66" width="115" height="30"/>
+                                <state key="normal" title="Check update">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fetchVersionPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6RL-Vk-sDv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2Z9-de-43F" firstAttribute="top" secondItem="V2n-Jt-LGj" secondAttribute="bottom" constant="16" id="Dyx-3c-13S"/>
+                            <constraint firstItem="2Z9-de-43F" firstAttribute="leading" secondItem="V2n-Jt-LGj" secondAttribute="leading" id="Ibc-dh-fnw"/>
+                            <constraint firstItem="2Z9-de-43F" firstAttribute="trailing" secondItem="V2n-Jt-LGj" secondAttribute="trailing" id="m7b-85-Vho"/>
                             <constraint firstItem="V2n-Jt-LGj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pmV-4S-dcr"/>
                             <constraint firstItem="V2n-Jt-LGj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="w34-vq-ZtC"/>
                         </constraints>

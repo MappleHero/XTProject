@@ -80,39 +80,46 @@ typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
 #pragma mark - config
 
 /**
- *  获取服务器地址
+ *  获取服务器地址，子类覆写
  *
  *  @return 服务器地址
  */
 - (NSString *)baseURLString;
 
 /**
- *  获取请求路径
+ *  获取请求路径，子类覆写
  *
  *  @return 请求路径
  */
 - (NSString *)path;
 
 /**
- *  获取请求头域
+ *  获取请求头域，子类覆写
  *
  *  @return 请求头域
  */
 - (NSDictionary *)headers;
 
 /**
- *  获取请求参数
+ *  获取请求参数，子类覆写
  *
  *  @return 请求参数
  */
 - (NSDictionary *)params;
 
 /**
- *  获取缓存时长
+ *  获取缓存时长，子类覆写
  *
  *  @return 缓存时长
  */
 - (NSTimeInterval )cacheInterval;
+
+/**
+ *  请求的url，默认为nil，使用默认的方式拼装params构造url，子类覆写则使用子类返回的url
+ *
+ *  @return 请求url字符串
+ */
+- (NSString *)requestURLString;
 
 /**
  *  获取缓存文件名
