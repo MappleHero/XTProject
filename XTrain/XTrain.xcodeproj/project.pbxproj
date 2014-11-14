@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B50AE6B11A0B933D00A2D201 /* XTNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B50AE6AB1A0B933D00A2D201 /* XTNetworkEngine.m */; };
-		B50AE6B21A0B933D00A2D201 /* XTNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B50AE6AD1A0B933D00A2D201 /* XTNetworkRequest.m */; };
 		B50AE6B61A0B935200A2D201 /* XTEncodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B50AE6B51A0B935200A2D201 /* XTEncodeUtil.m */; };
 		B539ABD41A11F7650086FAC6 /* XTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B539ABD31A11F7650086FAC6 /* XTUtil.m */; };
 		B539ABD71A11F9A10086FAC6 /* NSString+Useful.m in Sources */ = {isa = PBXBuildFile; fileRef = B539ABD61A11F9A10086FAC6 /* NSString+Useful.m */; };
@@ -17,10 +15,13 @@
 		B553D67C1A14CEE300B2C6B0 /* TNServerURLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B553D67B1A14CEE300B2C6B0 /* TNServerURLConfig.m */; };
 		B571F93C1A0C634800E1C752 /* NetworkConfig-R.plist in Resources */ = {isa = PBXBuildFile; fileRef = B571F93B1A0C634800E1C752 /* NetworkConfig-R.plist */; };
 		B571F93E1A0C668500E1C752 /* NetworkConfig-PR.plist in Resources */ = {isa = PBXBuildFile; fileRef = B571F93D1A0C668500E1C752 /* NetworkConfig-PR.plist */; };
-		B571F9441A0C6B9D00E1C752 /* XTNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B571F9431A0C6B9D00E1C752 /* XTNetworkConfig.m */; };
 		B571F94F1A0CDA4F00E1C752 /* XTLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B571F94E1A0CDA4F00E1C752 /* XTLog.m */; };
 		B5C8C2A61A15A2640001DF26 /* TNBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2A51A15A2640001DF26 /* TNBaseRequest.m */; };
 		B5C8C2A91A15A64C0001DF26 /* TNBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2A81A15A64C0001DF26 /* TNBaseResponse.m */; };
+		B5C8C2B31A15CE4A0001DF26 /* XTNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2AC1A15CE4A0001DF26 /* XTNetworkConfig.m */; };
+		B5C8C2B41A15CE4A0001DF26 /* XTNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2AE1A15CE4A0001DF26 /* XTNetworkEngine.m */; };
+		B5C8C2B51A15CE4A0001DF26 /* XTNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2B01A15CE4A0001DF26 /* XTNetworkRequest.m */; };
+		B5C8C2B61A15CE4A0001DF26 /* XTNetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2B21A15CE4A0001DF26 /* XTNetworkResponse.m */; };
 		B5F0373C1A0B117800BCF949 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F0373B1A0B117800BCF949 /* main.m */; };
 		B5F0373F1A0B117800BCF949 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F0373E1A0B117800BCF949 /* AppDelegate.m */; };
 		B5F037421A0B117800BCF949 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F037411A0B117800BCF949 /* ViewController.m */; };
@@ -28,7 +29,6 @@
 		B5F037471A0B117800BCF949 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F037461A0B117800BCF949 /* Images.xcassets */; };
 		B5F0374A1A0B117800BCF949 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F037481A0B117800BCF949 /* LaunchScreen.xib */; };
 		B5F037561A0B117800BCF949 /* XTrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F037551A0B117800BCF949 /* XTrainTests.m */; };
-		B5F314721A10838C003142BD /* XTNetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F314711A10838C003142BD /* XTNetworkResponse.m */; };
 		B684523B79B343B243846279 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CEB045D1590DC0D266D11E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -46,10 +46,6 @@
 		21CEB045D1590DC0D266D11E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		83374B2D028665B1B69CA4E7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A7F695BE09583DE6FD30D19D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		B50AE6AA1A0B933D00A2D201 /* XTNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkEngine.h; sourceTree = "<group>"; };
-		B50AE6AB1A0B933D00A2D201 /* XTNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkEngine.m; sourceTree = "<group>"; };
-		B50AE6AC1A0B933D00A2D201 /* XTNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkRequest.h; sourceTree = "<group>"; };
-		B50AE6AD1A0B933D00A2D201 /* XTNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkRequest.m; sourceTree = "<group>"; };
 		B50AE6B41A0B935200A2D201 /* XTEncodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTEncodeUtil.h; sourceTree = "<group>"; };
 		B50AE6B51A0B935200A2D201 /* XTEncodeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTEncodeUtil.m; sourceTree = "<group>"; };
 		B539ABD21A11F7650086FAC6 /* XTUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTUtil.h; sourceTree = "<group>"; };
@@ -64,14 +60,21 @@
 		B553D67B1A14CEE300B2C6B0 /* TNServerURLConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNServerURLConfig.m; sourceTree = "<group>"; };
 		B571F93B1A0C634800E1C752 /* NetworkConfig-R.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NetworkConfig-R.plist"; sourceTree = "<group>"; };
 		B571F93D1A0C668500E1C752 /* NetworkConfig-PR.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NetworkConfig-PR.plist"; sourceTree = "<group>"; };
-		B571F9421A0C6B9D00E1C752 /* XTNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkConfig.h; sourceTree = "<group>"; };
-		B571F9431A0C6B9D00E1C752 /* XTNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkConfig.m; sourceTree = "<group>"; };
 		B571F94B1A0CD37E00E1C752 /* XTLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTLog.h; sourceTree = "<group>"; };
 		B571F94E1A0CDA4F00E1C752 /* XTLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTLog.m; sourceTree = "<group>"; };
 		B5C8C2A41A15A2640001DF26 /* TNBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNBaseRequest.h; sourceTree = "<group>"; };
 		B5C8C2A51A15A2640001DF26 /* TNBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNBaseRequest.m; sourceTree = "<group>"; };
 		B5C8C2A71A15A64C0001DF26 /* TNBaseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNBaseResponse.h; sourceTree = "<group>"; };
 		B5C8C2A81A15A64C0001DF26 /* TNBaseResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNBaseResponse.m; sourceTree = "<group>"; };
+		B5C8C2AB1A15CE4A0001DF26 /* XTNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkConfig.h; sourceTree = "<group>"; };
+		B5C8C2AC1A15CE4A0001DF26 /* XTNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkConfig.m; sourceTree = "<group>"; };
+		B5C8C2AD1A15CE4A0001DF26 /* XTNetworkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkEngine.h; sourceTree = "<group>"; };
+		B5C8C2AE1A15CE4A0001DF26 /* XTNetworkEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkEngine.m; sourceTree = "<group>"; };
+		B5C8C2AF1A15CE4A0001DF26 /* XTNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkRequest.h; sourceTree = "<group>"; };
+		B5C8C2B01A15CE4A0001DF26 /* XTNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkRequest.m; sourceTree = "<group>"; };
+		B5C8C2B11A15CE4A0001DF26 /* XTNetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkResponse.h; sourceTree = "<group>"; };
+		B5C8C2B21A15CE4A0001DF26 /* XTNetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkResponse.m; sourceTree = "<group>"; };
+		B5C8C2B71A15CE720001DF26 /* XTNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTNetwork.h; sourceTree = "<group>"; };
 		B5F037361A0B117800BCF949 /* XTrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XTrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F0373A1A0B117800BCF949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5F0373B1A0B117800BCF949 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,8 +88,6 @@
 		B5F0374F1A0B117800BCF949 /* XTrainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XTrainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F037541A0B117800BCF949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5F037551A0B117800BCF949 /* XTrainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XTrainTests.m; sourceTree = "<group>"; };
-		B5F314701A10838C003142BD /* XTNetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkResponse.h; sourceTree = "<group>"; };
-		B5F314711A10838C003142BD /* XTNetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkResponse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,21 +124,6 @@
 				21CEB045D1590DC0D266D11E /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B50AE6A51A0B933D00A2D201 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				B50AE6AA1A0B933D00A2D201 /* XTNetworkEngine.h */,
-				B50AE6AB1A0B933D00A2D201 /* XTNetworkEngine.m */,
-				B50AE6AC1A0B933D00A2D201 /* XTNetworkRequest.h */,
-				B50AE6AD1A0B933D00A2D201 /* XTNetworkRequest.m */,
-				B571F9421A0C6B9D00E1C752 /* XTNetworkConfig.h */,
-				B571F9431A0C6B9D00E1C752 /* XTNetworkConfig.m */,
-				B5F314701A10838C003142BD /* XTNetworkResponse.h */,
-				B5F314711A10838C003142BD /* XTNetworkResponse.m */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		B50AE6B31A0B935200A2D201 /* Foundation */ = {
@@ -179,6 +165,22 @@
 			path = Tuniu;
 			sourceTree = "<group>";
 		};
+		B5C8C2AA1A15CE4A0001DF26 /* XTNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				B5C8C2AB1A15CE4A0001DF26 /* XTNetworkConfig.h */,
+				B5C8C2AC1A15CE4A0001DF26 /* XTNetworkConfig.m */,
+				B5C8C2AD1A15CE4A0001DF26 /* XTNetworkEngine.h */,
+				B5C8C2AE1A15CE4A0001DF26 /* XTNetworkEngine.m */,
+				B5C8C2AF1A15CE4A0001DF26 /* XTNetworkRequest.h */,
+				B5C8C2B01A15CE4A0001DF26 /* XTNetworkRequest.m */,
+				B5C8C2B11A15CE4A0001DF26 /* XTNetworkResponse.h */,
+				B5C8C2B21A15CE4A0001DF26 /* XTNetworkResponse.m */,
+				B5C8C2B71A15CE720001DF26 /* XTNetwork.h */,
+			);
+			path = XTNetwork;
+			sourceTree = "<group>";
+		};
 		B5F0372D1A0B117800BCF949 = {
 			isa = PBXGroup;
 			children = (
@@ -202,8 +204,8 @@
 		B5F037381A0B117800BCF949 /* XTrain */ = {
 			isa = PBXGroup;
 			children = (
+				B5C8C2AA1A15CE4A0001DF26 /* XTNetwork */,
 				B50AE6B31A0B935200A2D201 /* Foundation */,
-				B50AE6A51A0B933D00A2D201 /* Network */,
 				B553D6721A14CE2900B2C6B0 /* Demo */,
 				B553D6751A14CE2A00B2C6B0 /* Tuniu */,
 				B5F0373D1A0B117800BCF949 /* AppDelegate.h */,
@@ -384,20 +386,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B553D67C1A14CEE300B2C6B0 /* TNServerURLConfig.m in Sources */,
-				B571F9441A0C6B9D00E1C752 /* XTNetworkConfig.m in Sources */,
 				B553D6791A14CE2A00B2C6B0 /* TNVersion.m in Sources */,
+				B5C8C2B31A15CE4A0001DF26 /* XTNetworkConfig.m in Sources */,
+				B5C8C2B61A15CE4A0001DF26 /* XTNetworkResponse.m in Sources */,
 				B5F037421A0B117800BCF949 /* ViewController.m in Sources */,
+				B5C8C2B51A15CE4A0001DF26 /* XTNetworkRequest.m in Sources */,
 				B571F94F1A0CDA4F00E1C752 /* XTLog.m in Sources */,
 				B553D6781A14CE2A00B2C6B0 /* RayWeather.m in Sources */,
 				B539ABD41A11F7650086FAC6 /* XTUtil.m in Sources */,
 				B5C8C2A91A15A64C0001DF26 /* TNBaseResponse.m in Sources */,
+				B5C8C2B41A15CE4A0001DF26 /* XTNetworkEngine.m in Sources */,
 				B5F0373F1A0B117800BCF949 /* AppDelegate.m in Sources */,
 				B5F0373C1A0B117800BCF949 /* main.m in Sources */,
-				B5F314721A10838C003142BD /* XTNetworkResponse.m in Sources */,
 				B5C8C2A61A15A2640001DF26 /* TNBaseRequest.m in Sources */,
 				B539ABD71A11F9A10086FAC6 /* NSString+Useful.m in Sources */,
-				B50AE6B21A0B933D00A2D201 /* XTNetworkRequest.m in Sources */,
-				B50AE6B11A0B933D00A2D201 /* XTNetworkEngine.m in Sources */,
 				B50AE6B61A0B935200A2D201 /* XTEncodeUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
