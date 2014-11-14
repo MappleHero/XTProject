@@ -1,5 +1,7 @@
 XTProject
 ==========
+##结构图
+![XTNetwork structure](http://ww3.sinaimg.cn/large/005yyi5Jjw1ema9pimau3j30fp08jt8y.jpg)
 ##网络
 * `XTNetwork`HTTP请求底层能力处理类，封装了请求参数构造和响应数据的处理，处理请求的缓存控制逻辑，与`XTNetworkRequest`配合使用，最好不要直接调用
 * `XTNetworkRequest`构造请求对象，封装请求参数，子类继承该类，配置对应的参数
