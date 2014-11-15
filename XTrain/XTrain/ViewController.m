@@ -32,7 +32,6 @@
 - (IBAction)fetchWeatherPressed:(id)sender
 {
     RayWeatherRequest *request = [[RayWeatherRequest alloc] init];
-    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[request baseURLString]];
     request.responseClassName = NSStringFromClass([RayWeatherResponse class]);
     [request startWithCallback:^(XTNetworkResponse *response) {
         RayWeatherResponse *weatherResponse = (RayWeatherResponse *)response;

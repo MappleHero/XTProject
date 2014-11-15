@@ -36,32 +36,3 @@ FOUNDATION_EXPORT void XTLogout(XTLogLevel level, const char *file, int line, co
 
 @end
 
-//#define XTLog(level, category, fmt, ...) do{\
-//    NSString *content = [[NSString alloc] initWithFormat:fmt, ##__VA_ARGS__];\
-//    NSString *logContent = [NSString stringWithFormat:@"[%@:%d][%s][%@]",\
-//    [[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent],\
-//    __LINE__,\
-//    __func__,\
-//    category];\
-//    switch (level)\
-//    {\
-//        case XTLogLevelVerbose:\
-//            DDLogVerbose(@"%@[verbose] %@", logContent, content);\
-//            break;\
-//        case XTLogLevelDebug:\
-//            DDLogVerbose(@"%@[Debug] %@", logContent, content);\
-//            break;\
-//        case XTLogLevelInfo:\
-//            DDLogVerbose(@"%@[Info] %@", logContent, content);\
-//            break;\
-//        case XTLogLevelWarn:\
-//            DDLogVerbose(@"%@[Warn] %@", logContent, content);\
-//            break;\
-//        case XTLogLevelError:\
-//            DDLogVerbose(@"%@[Error] %@", logContent, content);\
-//            break;\
-//        default:\
-//            break;\
-//    }\
-//}while(0)
-
