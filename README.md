@@ -11,10 +11,14 @@ XTProject
 ####使用方法
 **1. 初始化配置**
 ```
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions { 
-	...
-   	// 配置缓存路径
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	... 
+	// Log config
+    [XTLogConfig loadConfig];
+    // Cache path
     [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
+    // Register client
+    [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:@"http://www.raywenderlich.com/demos/weather_sample/"];
     ...
 }
 ```
@@ -22,7 +26,6 @@ XTProject
 **2. 发送请求**
 ```
 RayWeatherRequest *request = [[RayWeatherRequest alloc] init];
-[[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[request baseURLString]];
 request.responseClassName = NSStringFromClass([RayWeatherResponse class]);
 [request startWithCallback:^(XTNetworkResponse *response) {
     RayWeatherResponse *weatherResponse = (RayWeatherResponse *)response;
