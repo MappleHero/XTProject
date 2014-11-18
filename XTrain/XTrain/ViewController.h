@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XTBaseViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : XTBaseViewController
 
 
 @end

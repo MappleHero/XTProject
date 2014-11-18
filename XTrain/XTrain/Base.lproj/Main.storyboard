@@ -38,11 +38,50 @@
                                     <action selector="fetchVersionPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6RL-Vk-sDv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIc-9e-clv">
+                                <rect key="frame" x="16" y="114" width="115" height="30"/>
+                                <state key="normal" title="Show Loading">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleLoading:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Prx-Zs-RcL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5k-7l-T2u">
+                                <rect key="frame" x="16" y="161" width="115" height="30"/>
+                                <state key="normal" title="Show Success">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showSuccess:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Xl-QJ-LLM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYN-Ho-uhL">
+                                <rect key="frame" x="16" y="204" width="115" height="30"/>
+                                <state key="normal" title="Show Error">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showError:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dsU-jz-EiL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOx-Ru-Jon">
+                                <rect key="frame" x="16" y="248" width="115" height="30"/>
+                                <state key="normal" title="Show Hint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showHint:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="c2K-eq-n2f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eIc-9e-clv" firstAttribute="trailing" secondItem="2Z9-de-43F" secondAttribute="trailing" id="6ea-fl-zt7"/>
                             <constraint firstItem="2Z9-de-43F" firstAttribute="top" secondItem="V2n-Jt-LGj" secondAttribute="bottom" constant="16" id="Dyx-3c-13S"/>
                             <constraint firstItem="2Z9-de-43F" firstAttribute="leading" secondItem="V2n-Jt-LGj" secondAttribute="leading" id="Ibc-dh-fnw"/>
+                            <constraint firstItem="eIc-9e-clv" firstAttribute="leading" secondItem="2Z9-de-43F" secondAttribute="leading" id="Y5Q-e1-yV3"/>
+                            <constraint firstItem="eIc-9e-clv" firstAttribute="top" secondItem="2Z9-de-43F" secondAttribute="bottom" constant="18" id="a0M-Og-beb"/>
                             <constraint firstItem="2Z9-de-43F" firstAttribute="trailing" secondItem="V2n-Jt-LGj" secondAttribute="trailing" id="m7b-85-Vho"/>
                             <constraint firstItem="V2n-Jt-LGj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pmV-4S-dcr"/>
                             <constraint firstItem="V2n-Jt-LGj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="w34-vq-ZtC"/>

@@ -29,6 +29,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)toggleLoading:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    
+    [self showLoadingView:!button.selected];
+}
+
+- (IBAction)showSuccess:(id)sender
+{
+    [self showSuccessToast:@"成功"];
+}
+
+- (IBAction)showError:(id)sender
+{
+    [self showErrorToast:@"失败"];
+}
+
+- (IBAction)showHint:(id)sender
+{
+    [self showHintToast:@"Hello world..."];
+}
+
 - (IBAction)fetchWeatherPressed:(id)sender
 {
     RayWeatherRequest *request = [[RayWeatherRequest alloc] init];
