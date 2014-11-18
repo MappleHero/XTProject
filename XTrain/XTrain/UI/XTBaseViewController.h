@@ -44,6 +44,12 @@ typedef NS_ENUM(NSInteger, XTToastType)
 
 - (void)showToast:(NSString *)text type:(XTToastType)type duration:(CGFloat)duration;
 
+- (UIView *)errorToastView;
+
+- (UIView *)successToastView;
+
+- (UIView *)warnToastView;
+
 #pragma mark - Content state
 
 /**

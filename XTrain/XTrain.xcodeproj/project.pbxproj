@@ -49,6 +49,7 @@
 		A7F695BE09583DE6FD30D19D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B50AE6B41A0B935200A2D201 /* XTEncodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTEncodeUtil.h; sourceTree = "<group>"; };
 		B50AE6B51A0B935200A2D201 /* XTEncodeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTEncodeUtil.m; sourceTree = "<group>"; };
+		B5116E341A1B41C000B7682A /* SingletonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonDefine.h; sourceTree = "<group>"; };
 		B539ABD21A11F7650086FAC6 /* XTUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTUtil.h; sourceTree = "<group>"; };
 		B539ABD31A11F7650086FAC6 /* XTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTUtil.m; sourceTree = "<group>"; };
 		B539ABD51A11F9A10086FAC6 /* NSString+Useful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Useful.h"; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		B50AE6B31A0B935200A2D201 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				B5116E341A1B41C000B7682A /* SingletonDefine.h */,
 				B571F94B1A0CD37E00E1C752 /* XTLog.h */,
 				B571F94E1A0CDA4F00E1C752 /* XTLog.m */,
 				B50AE6B41A0B935200A2D201 /* XTEncodeUtil.h */,

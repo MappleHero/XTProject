@@ -7,12 +7,17 @@
 //
 
 #import "XTBaseViewController.h"
+#import <JGProgressHUD/JGProgressHUD.h>
 
 static const int toastDuration = 2.0f;
 
+@interface XTBaseViewController ()
+
+@end
+
 @implementation XTBaseViewController
 
-#pragma mark - Load state
+#pragma mark - HUD
 
 - (void)showLoadingView:(BOOL)show
 {
@@ -24,7 +29,20 @@ static const int toastDuration = 2.0f;
     
 }
 
-#pragma mark - Toast
+- (UIView *)warnToastView
+{
+    return nil;
+}
+
+- (UIView *)successToastView
+{
+    return nil;
+}
+
+- (UIView *)errorToastView
+{
+    return nil;
+}
 
 - (void)showToast:(NSString *)text type:(XTToastType)type duration:(CGFloat)duration
 {
@@ -33,12 +51,12 @@ static const int toastDuration = 2.0f;
 
 - (void)showHintToast:(NSString *)text
 {
-    
+    [self showHintToast:text duration:toastDuration];
 }
 
 - (void)showHintToast:(NSString *)text duration:(CGFloat)duration
 {
-    
+    [self showToast:text type:XTToastTypeHint duration:duration];
 }
 
 - (void)showSuccessToast:(NSString *)text
@@ -53,12 +71,22 @@ static const int toastDuration = 2.0f;
 
 - (void)showWarnToast:(NSString *)text
 {
-    
+    [self showWarnToast:text duration:toastDuration];
 }
 
 - (void)showWarnToast:(NSString *)text duration:(CGFloat)duration
 {
-    
+    [self showToast:text type:XTToastTypeWarn duration:duration];
+}
+
+- (void)showErrorToast:(NSString *)text
+{
+    [self showErrorToast:text duration:toastDuration];
+}
+
+- (void)showErrorToast:(NSString *)text duration:(CGFloat)duration
+{
+    [self showToast:text type:XTToastTypeError duration:duration];
 }
 
 #pragma mark - Content state
