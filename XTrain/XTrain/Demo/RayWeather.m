@@ -97,14 +97,17 @@
 - (void)handleBusiness
 {
     // TODO:Validate response
-    NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:self.responseData
-                                                            options:0
-                                                              error:nil];
-    
-    RayWeather *weather = [MTLJSONAdapter modelOfClass:[RayWeather class]
-                                    fromJSONDictionary:jsonDic[@"data"]
-                                                 error:nil];
-    self.weather = weather;
+    if (self.responseData)
+    {
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:self.responseData
+                                                                options:0
+                                                                  error:nil];
+        
+        RayWeather *weather = [MTLJSONAdapter modelOfClass:[RayWeather class]
+                                        fromJSONDictionary:jsonDic[@"data"]
+                                                     error:nil];
+        self.weather = weather;
+    }
 }
 
 @end
