@@ -26,7 +26,3 @@ static className *_##singletonName = nil;\
     return [self singletonName];\
 }\
 \
-+ (id)copyWithZone:(struct _NSZone *)zone\
-{\
-    return [self singletonName];\
-}\

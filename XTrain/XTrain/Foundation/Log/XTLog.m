@@ -54,6 +54,7 @@ void XTLogout(XTLogLevel level, const char *file, int line, const char *func, NS
     NSString *directory = [[XTUtil appDocPath] stringByAppendingPathComponent:@"log"];
     DDLogFileManagerDefault *fileManager = [[DDLogFileManagerDefault alloc] initWithLogsDirectory:directory];
     DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:fileManager];
+    fileLogger.maximumFileSize = 10 * 1024 * 1024; // Default 10M
     [DDLog addLogger:fileLogger withLevel:LOG_LEVEL_ERROR];
 }
 
