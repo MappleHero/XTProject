@@ -26,6 +26,11 @@ typedef NS_ENUM(NSInteger, XTLogLevel)
 FOUNDATION_EXPORT void XTLogout(XTLogLevel level, const char *file, int line, const char *func, NSString *category, NSString *fmt, ...);
 
 #define XTLog XTLogout
+#define XTLogVerbose(category, fmt, ...) XTLog(XTL_VERBOSE_LVL, category, fmt, ##__VA_ARGS__)
+#define XTLogDebug(category, fmt, ...) XTLog(XTL_DEBUG_LVL, category, fmt, ##__VA_ARGS__)
+#define XTLogInfo(category, fmt, ...) XTLog(XTL_INFO_LVL, category, fmt, ##__VA_ARGS__)
+#define XTLogWarn(category, fmt, ...) XTLog(XTL_WARN_LVL, category, fmt, ##__VA_ARGS__)
+#define XTLogError(category, fmt, ...) XTLog(XTL_ERROR_LVL, category, fmt, ##__VA_ARGS__)
 
 @interface XTLogConfig : NSObject
 

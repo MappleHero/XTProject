@@ -35,7 +35,7 @@
     [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPSURLString];
     [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].chatURLString];
     
-    XTLog(XTL_VERBOSE_LVL, @"App Delegate", [XTUtil appDocPath]);
+    XTLogVerbose(@"App Delegate", [XTUtil appDocPath]);
     return YES;
 }
 
