@@ -32,7 +32,7 @@ request.responseClassName = NSStringFromClass([RayWeatherResponse class]);
     XTLog(XTL_INFO_LVL, @"ViewController", @"Response:%@ weather:%@", weatherResponse, weatherResponse.weather);
 }];
 ```
-详细的代码请参考[RayWeather.m](https://github.com/wuwen1030/XTProject/blob/master/XTrain/XTrain/Demo/RayWeather.m)
+详细代码请参考[RayWeather.m](https://github.com/wuwen1030/XTProject/blob/master/XTrain/XTrain/Demo/RayWeather.m)
 ##日志
 `XTLog`日志
 
@@ -41,6 +41,7 @@ request.responseClassName = NSStringFromClass([RayWeatherResponse class]);
 * **level:**日志等级，取值为`XTL_VERBOSE_LVL` `XTL_DEBUG_LVL` `XTL_INFO_LVL` `XTL_WARN_LVL` `XTL_ERROR_LVL`
 * **category:**模块名，例如@"XTNetwork"
 * **fmt...:**日志内容
+* 提供XTLogVerbose, XTLogDebug, ...等短方法以方便调用
 ###源码片段
 ```
 ...
@@ -50,4 +51,12 @@ if (![self validateRequest:request error:&error])
 	XTLog(XTL_INFO_LVL, @"ViewController", @"Response:%@ weather:%@", weatherResponse, weatherResponse.weather);
 	...
 }
+
+if (![self validateRequest:request error:&error])
+{	
+	...
+	XTLogInfo( @"ViewController", @"Response:%@ weather:%@", weatherResponse, weatherResponse.weather);
+	...
+}
+
 ```
