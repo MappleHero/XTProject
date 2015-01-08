@@ -8,6 +8,7 @@
 
 #import "TNBaseResponse.h"
 #import "XTEncodeUtil.h"
+#import <Mantle/Mantle.h>
 
 NSString *const TNResponseErrorDomain = @"com.tuniu.BUSINESSERROR";
 

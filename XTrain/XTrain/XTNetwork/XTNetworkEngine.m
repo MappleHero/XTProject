@@ -13,11 +13,7 @@
 #import "XTNetworkRequest.h"
 #import "XTNetworkResponse.h"
 
-#define XTNETWORK_LOG_VERBOSE  XTL_VERBOSE_LVL,@"XTNetwork"
-#define XTNETWORK_LOG_DEBUG  XTL_DEBUG_LVL,@"XTNetwork"
-#define XTNETWORK_LOG_INFO  XTL_INFO_LVL,@"XTNetwork"
-#define XTNETWORK_LOG_WARN  XTL_WARN_LVL,@"XTNetwork"
-#define XTNETWORK_LOG_ERROR  XTL_ERROR_LVL,@"XTNetwork"
+static NSString *const categoryName = @"XTNetwork";
 
 @interface XTNetworkEngine ()
 
@@ -55,7 +51,7 @@ static XTNetworkEngine *_defaultEngine = nil;
     {
         _managerDictionary = [NSMutableDictionary dictionary];
         _operationDictionary = [NSMutableDictionary dictionary];
-        // 999 ^_^
+        // 999 ^_^, nothing special, just for fun
         _maxRequestID = 999;
     }
     return self;
@@ -65,7 +61,7 @@ static XTNetworkEngine *_defaultEngine = nil;
 
 - (BOOL)validateRequest:(XTNetworkRequest *)request error:(NSError **)error
 {
-    // TODO:Validate request
+    
     return YES;
 }
 
@@ -73,11 +69,12 @@ static XTNetworkEngine *_defaultEngine = nil;
 {
     request.requestID = ++self.maxRequestID;
     NSError *error = nil;
-    XTLog(XTNETWORK_LOG_VERBOSE, @"Add request:{%@}", request);
+    XTLogVerbose(categoryName, @"Add request:{%@}", request);
+    
     // Validate request
     if (![self validateRequest:request error:&error])
     {
-        XTLog(XTNETWORK_LOG_ERROR, @"Request:{%@} invalid!", request);
+        XTLogError(categoryName, @"Request:{%@} invalid!", request);
 
         XTNetworkResponse *response = [self responseWithRequest:request];
         response.error = error;
@@ -181,7 +178,7 @@ static XTNetworkEngine *_defaultEngine = nil;
 
 - (void)removeRequest:(XTNetworkRequest *)request
 {
-    XTLog(XTNETWORK_LOG_INFO, @"Remove request:{%@}", request);
+    XTLogInfo(categoryName, @"Remove request:{%@}", request);
     AFHTTPRequestOperation *operation = self.operationDictionary[@(request.requestID)];
     [operation cancel];
     [self.operationDictionary removeObjectForKey:@(request.requestID)];
@@ -259,7 +256,7 @@ static XTNetworkEngine *_defaultEngine = nil;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:nil])
     {
-        XTLog(XTNETWORK_LOG_WARN, @"Request:{%@}, cache NOT exist", request);
+        XTLogWarn(categoryName, @"Request:{%@}, cache NOT exist", request);
         return nil;
     }
     
@@ -269,14 +266,14 @@ static XTNetworkEngine *_defaultEngine = nil;
                                                              error:&attributesRetrievalError];
     if (!attributes)
     {
-        XTLog(XTNETWORK_LOG_ERROR, @"Request:{%@}, failed to get file modification date");
+        XTLogError(categoryName, @"Request:{%@}, failed to get file modification date");
         return nil;
     }
     int seconds = -[[attributes fileModificationDate] timeIntervalSinceNow];
     
     if (seconds > [request cacheInterval])
     {
-        XTLog(XTNETWORK_LOG_ERROR, @"Request:{%@}, cache EXPIRED");
+        XTLogError(categoryName, @"Request:{%@}, cache EXPIRED");
         return nil;
     }
     

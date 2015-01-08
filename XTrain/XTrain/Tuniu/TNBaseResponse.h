@@ -7,7 +7,8 @@
 //
 
 #import "XTNetworkResponse.h"
-#import <Mantle/Mantle.h>
+
+@class MTLModel;
 
 FOUNDATION_EXPORT NSString *const TNResponseErrorDomain;
 

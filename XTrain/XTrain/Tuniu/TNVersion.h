@@ -8,10 +8,11 @@
 
 #import "TNBaseRequest.h"
 #import "TNBaseResponse.h"
+#import "TNBaseModel.h"
 
 #pragma mark - Model
 
-@interface TNSplash : MTLModel <MTLJSONSerializing>
+@interface TNSplash : TNBaseModel
 
 @property (nonatomic, assign) NSInteger splashId;
 @property (nonatomic, strong) NSString *startDate;
@@ -20,7 +21,7 @@
 
 @end
 
-@interface TNVersion : MTLModel <MTLJSONSerializing>
+@interface TNVersion : TNBaseModel
 
 @property (assign, nonatomic) BOOL isUpgradeNeeded;
 @property (assign, nonatomic) BOOL isForceUpgrade;

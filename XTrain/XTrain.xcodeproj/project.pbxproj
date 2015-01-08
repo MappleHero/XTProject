@@ -19,6 +19,7 @@
 		B595485F1A3EECC400A59A67 /* XTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B59548581A3EECC400A59A67 /* XTUtil.m */; };
 		B59548601A3EECC400A59A67 /* XTUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B595485A1A3EECC400A59A67 /* XTUncaughtExceptionHandler.m */; };
 		B5ADD8F01A1AEED400BC6934 /* XTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ADD8EF1A1AEED400BC6934 /* XTBaseViewController.m */; };
+		B5BC71FE1A5E7C30006EDC5F /* TNBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BC71FD1A5E7C30006EDC5F /* TNBaseModel.m */; };
 		B5C8C2A61A15A2640001DF26 /* TNBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2A51A15A2640001DF26 /* TNBaseRequest.m */; };
 		B5C8C2A91A15A64C0001DF26 /* TNBaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2A81A15A64C0001DF26 /* TNBaseResponse.m */; };
 		B5C8C2B31A15CE4A0001DF26 /* XTNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2AC1A15CE4A0001DF26 /* XTNetworkConfig.m */; };
@@ -72,6 +73,8 @@
 		B595485A1A3EECC400A59A67 /* XTUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		B5ADD8EE1A1AEED400BC6934 /* XTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTBaseViewController.h; sourceTree = "<group>"; };
 		B5ADD8EF1A1AEED400BC6934 /* XTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTBaseViewController.m; sourceTree = "<group>"; };
+		B5BC71FC1A5E7C30006EDC5F /* TNBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNBaseModel.h; sourceTree = "<group>"; };
+		B5BC71FD1A5E7C30006EDC5F /* TNBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNBaseModel.m; sourceTree = "<group>"; };
 		B5C8C2A41A15A2640001DF26 /* TNBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNBaseRequest.h; sourceTree = "<group>"; };
 		B5C8C2A51A15A2640001DF26 /* TNBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNBaseRequest.m; sourceTree = "<group>"; };
 		B5C8C2A71A15A64C0001DF26 /* TNBaseResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNBaseResponse.h; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				B5C8C2A51A15A2640001DF26 /* TNBaseRequest.m */,
 				B5C8C2A71A15A64C0001DF26 /* TNBaseResponse.h */,
 				B5C8C2A81A15A64C0001DF26 /* TNBaseResponse.m */,
+				B5BC71FC1A5E7C30006EDC5F /* TNBaseModel.h */,
+				B5BC71FD1A5E7C30006EDC5F /* TNBaseModel.m */,
 			);
 			path = Tuniu;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				B5F0373F1A0B117800BCF949 /* AppDelegate.m in Sources */,
 				B5F0373C1A0B117800BCF949 /* main.m in Sources */,
 				B595485B1A3EECC400A59A67 /* NSAttributedString+EasyToUse.m in Sources */,
+				B5BC71FE1A5E7C30006EDC5F /* TNBaseModel.m in Sources */,
 				B5C8C2A61A15A2640001DF26 /* TNBaseRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

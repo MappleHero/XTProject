@@ -14,7 +14,7 @@ FOUNDATION_EXPORT NSString *const XTRequestErrorDomain;
 
 #define ONE_DAY 60*60*24
 
-typedef NSInteger XTRequestID;
+typedef NSUInteger XTRequestID;
 
 typedef NS_ENUM(NSInteger, XTHTTPCacheStrategy)
 {
@@ -50,7 +50,7 @@ typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
  */
 @property (nonatomic, copy) XTHTTPRequestCallback callback;
 /**
- *  请求响应的response类名，必须是XTNetworkResponse的子类
+ *  请求响应的response类名，必须是XTNetworkResponse或其子类，默认XTNetworkResponse
  */
 @property (nonatomic, copy) NSString *responseClassName;
 /**

@@ -27,7 +27,7 @@
     // URL config
     [[TNServerURLConfig defaultConfig] loadConfig];
     // Cache path
-    [XTNetworkConfig defaultConfig].HTTPCachePath = [[XTUtil appDocPath] stringByAppendingPathComponent:@"HTTPCache"];
+    [[XTNetworkConfig defaultConfig] configHTTPCachePath:@"HTTPCache"];
     // Register client
     [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:@"http://www.raywenderlich.com/demos/weather_sample/"];
     [[XTNetworkEngine defaultEngine] registerClientWithBaseURLString:[TNServerURLConfig defaultConfig].HTTPURLString];

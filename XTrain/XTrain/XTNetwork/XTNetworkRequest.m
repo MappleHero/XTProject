@@ -26,7 +26,7 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
 {
     if (self = [super init])
     {
-        
+        _responseClassName = @"XTNetworkResponse";
     }
     return self;
 }

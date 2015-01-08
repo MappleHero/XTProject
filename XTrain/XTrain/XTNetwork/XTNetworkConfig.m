@@ -7,6 +7,13 @@
 //
 
 #import "XTNetworkConfig.h"
+#import "XTLog.h"
+#import "XTUtil.h"
+
+@interface XTNetworkConfig ()
+
+
+@end
 
 @implementation XTNetworkConfig
 
@@ -21,17 +28,36 @@ static XTNetworkConfig *_defaultConfig = nil;
     return _defaultConfig;
 }
 
-- (void)setHTTPCachePath:(NSString *)HTTPCachePath
++ (id)allocWithZone:(struct _NSZone *)zone
 {
-    _HTTPCachePath = HTTPCachePath;
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:HTTPCachePath isDirectory:nil])
+    return [self defaultConfig];
+}
+
+- (BOOL)configHTTPCachePath:(NSString *)cachePath
+{
+    NSString *fullPath = [[XTUtil appDocPath] stringByAppendingPathComponent:cachePath];
+    if (self.HTTPCachePath
+        && ![self.HTTPCachePath isEqualToString:fullPath])
     {
-        [[NSFileManager defaultManager] createDirectoryAtPath:HTTPCachePath
+        XTLogError(@"XTNetworkConfig", @"HTTP cache path has already be configed!");
+        return NO;
+    }
+    BOOL isDirectory;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDirectory])
+    {
+        if (!isDirectory)
+        {
+            XTLogError(@"XTNetworkConfig", @"Input param{%@}, is not a valid directory!", cachePath);
+            return NO;
+        }
+        [[NSFileManager defaultManager] createDirectoryAtPath:fullPath
                                   withIntermediateDirectories:NO
                                                    attributes:nil
                                                         error:nil];
     }
+    
+    _HTTPCachePath = fullPath;
+    return YES;
 }
 
 @end
