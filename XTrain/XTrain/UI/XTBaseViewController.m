@@ -11,7 +11,7 @@
 #import <JGProgressHUD/JGProgressHUDSuccessIndicatorView.h>
 #import <JGProgressHUD/JGProgressHUDErrorIndicatorView.h>
 
-static const int toastDuration = 2.0f;
+static const CGFloat toastDuration = 2.0f;
 static const JGProgressHUDStyle hudStyle = JGProgressHUDStyleDark;
 static const JGProgressHUDInteractionType interactionType = JGProgressHUDInteractionTypeBlockAllTouches;
 

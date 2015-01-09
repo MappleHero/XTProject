@@ -18,6 +18,7 @@
 		B595485E1A3EECC400A59A67 /* XTEncodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B59548561A3EECC400A59A67 /* XTEncodeUtil.m */; };
 		B595485F1A3EECC400A59A67 /* XTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B59548581A3EECC400A59A67 /* XTUtil.m */; };
 		B59548601A3EECC400A59A67 /* XTUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B595485A1A3EECC400A59A67 /* XTUncaughtExceptionHandler.m */; };
+		B598D1D81A5F803B00529BFC /* XTNetworkCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B598D1D71A5F803B00529BFC /* XTNetworkCacheManager.m */; };
 		B5ADD8F01A1AEED400BC6934 /* XTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ADD8EF1A1AEED400BC6934 /* XTBaseViewController.m */; };
 		B5BC71FE1A5E7C30006EDC5F /* TNBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BC71FD1A5E7C30006EDC5F /* TNBaseModel.m */; };
 		B5C8C2A61A15A2640001DF26 /* TNBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8C2A51A15A2640001DF26 /* TNBaseRequest.m */; };
@@ -71,6 +72,8 @@
 		B59548581A3EECC400A59A67 /* XTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTUtil.m; sourceTree = "<group>"; };
 		B59548591A3EECC400A59A67 /* XTUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTUncaughtExceptionHandler.h; sourceTree = "<group>"; };
 		B595485A1A3EECC400A59A67 /* XTUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		B598D1D61A5F803B00529BFC /* XTNetworkCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTNetworkCacheManager.h; sourceTree = "<group>"; };
+		B598D1D71A5F803B00529BFC /* XTNetworkCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTNetworkCacheManager.m; sourceTree = "<group>"; };
 		B5ADD8EE1A1AEED400BC6934 /* XTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTBaseViewController.h; sourceTree = "<group>"; };
 		B5ADD8EF1A1AEED400BC6934 /* XTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTBaseViewController.m; sourceTree = "<group>"; };
 		B5BC71FC1A5E7C30006EDC5F /* TNBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNBaseModel.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				B5C8C2B01A15CE4A0001DF26 /* XTNetworkRequest.m */,
 				B5C8C2B11A15CE4A0001DF26 /* XTNetworkResponse.h */,
 				B5C8C2B21A15CE4A0001DF26 /* XTNetworkResponse.m */,
+				B598D1D61A5F803B00529BFC /* XTNetworkCacheManager.h */,
+				B598D1D71A5F803B00529BFC /* XTNetworkCacheManager.m */,
 				B5C8C2B71A15CE720001DF26 /* XTNetwork.h */,
 			);
 			path = XTNetwork;
@@ -449,6 +454,7 @@
 				B59548601A3EECC400A59A67 /* XTUncaughtExceptionHandler.m in Sources */,
 				B5C8C2B61A15CE4A0001DF26 /* XTNetworkResponse.m in Sources */,
 				B5F037421A0B117800BCF949 /* ViewController.m in Sources */,
+				B598D1D81A5F803B00529BFC /* XTNetworkCacheManager.m in Sources */,
 				B5C8C2B51A15CE4A0001DF26 /* XTNetworkRequest.m in Sources */,
 				B553D6781A14CE2A00B2C6B0 /* RayWeather.m in Sources */,
 				B595485F1A3EECC400A59A67 /* XTUtil.m in Sources */,

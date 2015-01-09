@@ -12,6 +12,7 @@
 #import "XTLog.h"
 #import "XTNetworkRequest.h"
 #import "XTNetworkResponse.h"
+#import "XTNetworkCacheManager.h"
 
 static NSString *const categoryName = @"XTNetwork";
 
@@ -82,7 +83,7 @@ static XTNetworkEngine *_defaultEngine = nil;
     // Return the cache
     if (request.cacheStrategy != XTHTTPCacheStrategyNetOnly)
     {
-        NSString *cachedResponseString = [self cachedStringWithRequest:request];
+        NSString *cachedResponseString = [[XTNetworkCacheManager defaultManager] cachedDataWithRequest:request];
         
         XTNetworkResponse *response = [self responseWithRequest:request];
         response.success = YES;
@@ -144,9 +145,10 @@ static XTNetworkEngine *_defaultEngine = nil;
                                              }
                                              
                                              // cache
-                                             if ([self requestShouldCache:request])
+                                             if ([request cacheInterval] > 0)
                                              {
-                                                 [self cacheString:operation.responseString forRequest:request];
+                                                 [[XTNetworkCacheManager defaultManager] cacheData:operation.responseString
+                                                                                        forRequest:request];
                                              }
                                              
                                              // Dettach operation with requestID
@@ -225,6 +227,8 @@ static XTNetworkEngine *_defaultEngine = nil;
     }
     
     // TODO:停止manager的所有任务
+    // 这里需要思考一下怎么实现，根据operation找到XTNetworkRequest对象，并取消掉
+    // 或者该方法是否有存在的必要
     
 //    [manger.operationQueue cancelAllOperations];
     
@@ -243,49 +247,6 @@ static XTNetworkEngine *_defaultEngine = nil;
 - (AFHTTPRequestOperationManager *)mangerWithBaseURL:(NSString *)baseURLString
 {
     return self.managerDictionary[baseURLString];
-}
-
-#pragma mark - Cache
-
-- (BOOL)requestShouldCache:(XTNetworkRequest *)requset
-{
-    return [requset cacheInterval] > 0;
-}
-
-- (id)cachedStringWithRequest:(XTNetworkRequest *)request
-{
-    NSString *filePath = [[XTNetworkConfig defaultConfig].HTTPCachePath stringByAppendingPathComponent:[request cacheFileName]];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:nil])
-    {
-        XTLogWarn(categoryName, @"Request:{%@}, cache NOT exist", request);
-        return nil;
-    }
-    
-    // Validate cache
-    NSError *attributesRetrievalError = nil;
-    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath
-                                                             error:&attributesRetrievalError];
-    if (!attributes)
-    {
-        XTLogError(categoryName, @"Request:{%@}, failed to get file modification date");
-        return nil;
-    }
-    int seconds = -[[attributes fileModificationDate] timeIntervalSinceNow];
-    
-    if (seconds > [request cacheInterval])
-    {
-        XTLogError(categoryName, @"Request:{%@}, cache EXPIRED");
-        return nil;
-    }
-    
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-}
-
-- (void)cacheString:(NSString *)responseString forRequest:(XTNetworkRequest *)request
-{
-    NSString *filePath = [[XTNetworkConfig defaultConfig].HTTPCachePath stringByAppendingPathComponent:[request cacheFileName]];
-    [NSKeyedArchiver archiveRootObject:responseString toFile:filePath];
 }
 
 @end
