@@ -11,6 +11,7 @@
 #import "XTNetworkEngine.h"
 #import "XTEncodeUtil.h"
 #import "NSString+Useful.h"
+#import "XTNetworkResponse.h"
 
 NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
 
@@ -106,6 +107,42 @@ NSString *const XTRequestErrorDomain = @"com.xt.REQUESTERROR";
     }
     
     return [fileName md5String];
+}
+
+#pragma mark - Validate request
+
+- (BOOL)validateWithError:(NSError **)error
+{
+    XTRequestErrorCode errorCode = 0;
+    NSString *errorInfo = nil;
+    if ([self baseURLString].length == 0)
+    {
+        errorCode = XTRequestErrorBaseURL;
+        errorInfo = [NSString stringWithFormat:@"Request {%@}, [baseURLString] is INVALID", self];
+    }
+    
+    if ([self path].length == 0)
+    {
+        errorCode = XTRequestErrorPath;
+        errorInfo = [NSString stringWithFormat:@"Request {%@}, [path] is INVALID", self];
+    }
+    
+    Class responseClass = NSClassFromString(self.responseClassName);
+    if (![responseClass isSubclassOfClass:[XTNetworkResponse class]])
+    {
+        errorCode = XTRequestErrorResponseClassName;
+        errorInfo = [NSString stringWithFormat:@"Request {%@}, [responseClassName] is INVALID", self];
+    }
+    
+    if (errorCode != 0)
+    {
+        *error = [NSError errorWithDomain:XTRequestErrorDomain
+                                     code:errorCode
+                                 userInfo:@{NSLocalizedFailureReasonErrorKey:errorInfo}];
+        return NO;
+    }
+
+    return YES;
 }
 
 @end

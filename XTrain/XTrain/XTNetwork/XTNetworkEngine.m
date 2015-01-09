@@ -59,12 +59,6 @@ static XTNetworkEngine *_defaultEngine = nil;
 
 #pragma mark - Request
 
-- (BOOL)validateRequest:(XTNetworkRequest *)request error:(NSError **)error
-{
-    
-    return YES;
-}
-
 - (void)addRequest:(XTNetworkRequest *)request
 {
     request.requestID = ++self.maxRequestID;
@@ -72,7 +66,7 @@ static XTNetworkEngine *_defaultEngine = nil;
     XTLogVerbose(categoryName, @"Add request:{%@}", request);
     
     // Validate request
-    if (![self validateRequest:request error:&error])
+    if (![request validateWithError:&error])
     {
         XTLogError(categoryName, @"Request:{%@} invalid!", request);
 
@@ -199,7 +193,10 @@ static XTNetworkEngine *_defaultEngine = nil;
 
 - (BOOL)registerClientWithBaseURLString:(NSString *)baseURLString
 {
-    // TODO:校验baseURLString
+    if (baseURLString.length == 0)
+    {
+        return NO;
+    }
     
     if (self.managerDictionary[baseURLString])
     {
@@ -216,7 +213,10 @@ static XTNetworkEngine *_defaultEngine = nil;
 
 - (BOOL)deregisterClientWithBaseURLString:(NSString *)baseURLString
 {
-    // TODO:校验baseURLString
+    if (baseURLString.length == 0)
+    {
+        return NO;
+    }
     
     AFHTTPRequestOperationManager *manger = self.managerDictionary[baseURLString];
     if (!manger)
@@ -225,6 +225,8 @@ static XTNetworkEngine *_defaultEngine = nil;
     }
     
     // TODO:停止manager的所有任务
+    
+//    [manger.operationQueue cancelAllOperations];
     
     [self.managerDictionary removeObjectForKey:baseURLString];
     return YES;

@@ -45,7 +45,8 @@ NSString *const TNResponseErrorDomain = @"com.tuniu.BUSINESSERROR";
         NSInteger errorCode = [self.JSONDic[@"errorCode"] integerValue];
         
         self.success = success;
-        if (!success /*|| errorCode != TNResponseCodeSuccess*/)
+        if (!success
+            || errorCode != TNResponseCodeSuccess)
         {
             NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey:[NSString stringWithFormat:@"Business error with message:%@", self.JSONDic[@"msg"]]};
             self.error = [NSError errorWithDomain:TNResponseErrorDomain code:errorCode userInfo:userInfo];

@@ -30,6 +30,13 @@ typedef NS_ENUM(NSInteger, XTHTTPMethodType)
     XTHTTPMethodDELETE // DELETE
 };
 
+typedef NS_ENUM(NSInteger, XTRequestErrorCode)
+{
+    XTRequestErrorBaseURL = 1000,
+    XTRequestErrorPath = 1001,
+    XTRequestErrorResponseClassName = 1002
+};
+
 /**
  *  请求回调信息
  */
@@ -127,5 +134,16 @@ typedef void(^XTHTTPRequestCallback)(XTNetworkResponse *response);
  *  @return 缓存文件名
  */
 - (NSString *)cacheFileName;
+
+#pragma mark - Validate request
+
+/**
+ *  校验request，子类可覆写实现自己的校验
+ *
+ *  @param error 出参，request错误信息
+ *
+ *  @return 是否合法
+ */
+- (BOOL)validateWithError:(NSError **)error;
 
 @end

@@ -47,7 +47,7 @@ static XTNetworkConfig *_defaultConfig = nil;
     {
         if (!isDirectory)
         {
-            XTLogError(@"XTNetworkConfig", @"Input param{%@}, is not a valid directory!", cachePath);
+            XTLogError(@"XTNetworkConfig", @"Input param{%@}, is NOT a valid directory!", cachePath);
             return NO;
         }
         [[NSFileManager defaultManager] createDirectoryAtPath:fullPath
