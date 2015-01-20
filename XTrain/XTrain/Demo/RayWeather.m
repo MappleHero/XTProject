@@ -85,7 +85,7 @@
 
 - (NSTimeInterval)cacheInterval
 {
-    return ONE_DAY;
+    return 30;
 }
 
 @end

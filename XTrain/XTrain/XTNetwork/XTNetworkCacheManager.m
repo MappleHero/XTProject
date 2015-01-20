@@ -60,7 +60,7 @@ static XTNetworkCacheManager *_defaultManager;
 
 - (id)cachedDataWithRequest:(XTNetworkRequest *)request
 {
-    __block id cahedData = nil;
+    __block id cachedData = nil;
     dispatch_sync(self.operationQueue, ^{
         NSString *filePath = [[XTNetworkConfig defaultConfig].HTTPCachePath stringByAppendingPathComponent:[request cacheFileName]];
         
@@ -81,13 +81,13 @@ static XTNetworkCacheManager *_defaultManager;
         
         if (seconds > [request cacheInterval])
         {
-            XTLogError(@"XTNetworkCacheManager", @"Request:{%@}, cache EXPIRED");
+            XTLogError(@"XTNetworkCacheManager", @"Request:{%@}, cache EXPIRED", request);
         }
         
-        cahedData = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        cachedData = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     });
     
-    return cahedData;
+    return cachedData;
 }
 
 @end

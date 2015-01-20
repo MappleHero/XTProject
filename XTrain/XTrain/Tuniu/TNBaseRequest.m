@@ -42,6 +42,8 @@
     [urlString appendString:[self baseURLString]];
     // Path
     [urlString appendFormat:@"%@", [self path]];
+    // TODO:Add default params, such as "version" "clientType"
+    
     // Params
     if ([self params])
     {
@@ -49,6 +51,7 @@
                                                                 options:NSJSONWritingPrettyPrinted
                                                                   error:nil];
         NSString *query = [XTEncodeUtil encodeBase64WithData:paramJsonData];
+#warning Maybe we should use rest style '/' for "m.tuniu.com"
         [urlString appendFormat:@"?%@", query];
     }
     
