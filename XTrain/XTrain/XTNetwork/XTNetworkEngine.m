@@ -64,7 +64,7 @@ static XTNetworkEngine *_defaultEngine = nil;
 {
     request.requestID = ++self.maxRequestID;
     NSError *error = nil;
-    XTLogVerbose(categoryName, @"Add request:{%@}", request);
+    XTLogInfo(categoryName, @"Add request:{%@}", request);
     
     // Validate request
     if (![request validateWithError:&error])
@@ -85,6 +85,8 @@ static XTNetworkEngine *_defaultEngine = nil;
     {
         NSString *cachedResponseString = [[XTNetworkCacheManager defaultManager] cachedDataWithRequest:request];
         
+        if ([cachedResponseString length] > 0)
+        {
         XTNetworkResponse *response = [self responseWithRequest:request];
         response.success = YES;
         response.responseString = cachedResponseString;
@@ -96,11 +98,11 @@ static XTNetworkEngine *_defaultEngine = nil;
             request.callback(response);
         });
         
-    }
-    
     if (request.cacheStrategy == XTHTTPCacheStrategyCacheOnly)
     {
         return;
+    }
+        }
     }
     
     AFHTTPRequestOperationManager *manager = [self mangerWithBaseURL:request.baseURLString];
@@ -129,9 +131,13 @@ static XTNetworkEngine *_defaultEngine = nil;
         urlRequest.URL = [NSURL URLWithString:[request requestURLString]];
     }
 
+    XTLogInfo(categoryName, @"Request(%@) url request:{%@}", @(request.requestID), urlRequest);
+
     AFHTTPRequestOperation *operation = [manager
                                          HTTPRequestOperationWithRequest:urlRequest
                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                             XTLogInfo(categoryName, @"Request(requestID:%@) succeeded, response:{%@}", @(request.requestID), operation.responseString);
+
                                              XTNetworkResponse *response = [self responseWithRequest:request];
                                              response.success = YES;
                                              response.HTTPStatusCode = operation.response.statusCode;
@@ -155,6 +161,8 @@ static XTNetworkEngine *_defaultEngine = nil;
                                              [self.operationDictionary removeObjectForKey:@(request.requestID)];
                                          }
                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                             XTLogInfo(categoryName, @"Request(requestID:%@) failed with error:{%@}", @(request.requestID), error);
+
                                              XTNetworkResponse *response = [self responseWithRequest:request];
                                              response.success = NO;
                                              response.HTTPStatusCode = operation.response.statusCode;
@@ -185,7 +193,7 @@ static XTNetworkEngine *_defaultEngine = nil;
     Class responseClass = NSClassFromString(request.responseClassName);
     if (![responseClass isSubclassOfClass:[XTNetworkResponse class]])
     {
-        return nil;
+        return [[XTNetworkResponse alloc] init];
     }
     XTNetworkResponse *response = [[responseClass alloc] init];
     return response;

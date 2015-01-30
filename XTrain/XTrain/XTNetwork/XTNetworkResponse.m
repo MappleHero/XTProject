@@ -14,7 +14,9 @@ NSString *const XTResponseErrorDomain = @"com.xt.RESPONSEERROR";
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"success:[%d] HTTPStatusCode:[%ld] fromCache:[%d] responseString:[%@] error:[%@]",
+    return [NSString stringWithFormat:@"<%@:%p>:{success:%d,\nHTTPStatusCode:%ld,\nfromCache:%d,\nresponseString:%@,\nerror:%@,\n}",
+            NSStringFromClass([self class]),
+            self,
             self.success,
             (long)self.HTTPStatusCode,
             self.fromCache,

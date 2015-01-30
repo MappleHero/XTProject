@@ -20,29 +20,32 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaLumberjack (2.0.0-beta4):
-    - CocoaLumberjack/Default (= 2.0.0-beta4)
-    - CocoaLumberjack/Extensions (= 2.0.0-beta4)
-  - CocoaLumberjack/Core (2.0.0-beta4)
-  - CocoaLumberjack/Default (2.0.0-beta4):
+  - CocoaLumberjack (2.0.0-rc):
+    - CocoaLumberjack/Default (= 2.0.0-rc)
+    - CocoaLumberjack/Extensions (= 2.0.0-rc)
+  - CocoaLumberjack/Core (2.0.0-rc)
+  - CocoaLumberjack/Default (2.0.0-rc):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0-beta4):
+  - CocoaLumberjack/Extensions (2.0.0-rc):
     - CocoaLumberjack/Default
   - JGProgressHUD (1.2.2)
   - Mantle (1.5.1):
     - Mantle/extobjc (= 1.5.1)
   - Mantle/extobjc (1.5.1)
+  - Masonry (0.6.0)
 
 DEPENDENCIES:
   - AFNetworking
-  - CocoaLumberjack (~> 2.0.0-beta4)
+  - CocoaLumberjack (~> 2.0.0-rc)
   - JGProgressHUD
   - Mantle
+  - Masonry
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  CocoaLumberjack: 24153b24b17d853d7182b22b128971fb98e8cb18
+  CocoaLumberjack: 6186e27827fc574b50b16c10102fcc591437f06c
   JGProgressHUD: a7c58f711eec0b67f257a0821c0bac9194c72398
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
+  Masonry: 0bc111d6902e3a55ff8423bcbdf7155261806547
 
 COCOAPODS: 0.35.0.rc2

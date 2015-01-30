@@ -2,5 +2,6 @@ platform :ios, "6.0"
 
 pod "AFNetworking"
 pod "Mantle"
-pod "CocoaLumberjack", "~>2.0.0-beta4"
+pod "CocoaLumberjack", "~>2.0.0-rc"
 pod "JGProgressHUD"
+pod "Masonry"

@@ -7,12 +7,14 @@
 //
 
 #import "XTLog.h"
-#import <DDLog.h>
-#import <DDTTYLogger.h>
-#import <DDFileLogger.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import "XTUtil.h"
 
-int ddLogLevel = LOG_LEVEL_VERBOSE;
+#ifdef DEBUG
+    static int ddLogLevel = DDLogLevelVerbose;
+#else
+    static int ddLogLevel = DDLogLevelInfo;
+#endif
 
 void XTLogout(XTLogLevel level, const char *file, int line, const char *func, NSString *category, NSString *fmt, ...)
 {
@@ -51,11 +53,12 @@ void XTLogout(XTLogLevel level, const char *file, int line, const char *func, NS
 + (void)loadConfig
 {
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
     NSString *directory = [[XTUtil appDocPath] stringByAppendingPathComponent:@"log"];
     DDLogFileManagerDefault *fileManager = [[DDLogFileManagerDefault alloc] initWithLogsDirectory:directory];
     DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:fileManager];
     fileLogger.maximumFileSize = 10 * 1024 * 1024; // Default 10M
-    [DDLog addLogger:fileLogger withLevel:LOG_LEVEL_ERROR];
+    [DDLog addLogger:fileLogger withLevel:DDLogLevelError];
 }
 
 @end
