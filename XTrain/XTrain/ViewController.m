@@ -13,7 +13,7 @@
 #import "XTNetworkEngine.h"
 #import "TNVersion.h"
 #import <Masonry/Masonry.h>
-
+#import "NSAttributedString+EasyToUse.h"
 
 @interface ViewController ()
 

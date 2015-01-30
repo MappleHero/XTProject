@@ -6,18 +6,22 @@
 //  Copyright (c) 2014年 Tuniu. All rights reserved.
 //
 
-@import Foundation;
-@import UIKit;
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
 
 @interface NSAttributedString (EasyToUse)
 
-+ (id)attributedStringWithString:(NSString*)string;
++ (instancetype)attributedStringWithString:(NSString*)string;
 
-+ (id)attributedStringWithAttributedString:(NSAttributedString*)attrStr;
++ (instancetype)attributedStringWithAttributedString:(NSAttributedString*)attrStr;
+
+- (CGSize)sizeConstrainedToSize:(CGSize)maxSize;
+
+- (CGSize)sizeConstrainedToSize:(CGSize)maxSize fitRange:(NSRange*)fitRange;
 
 @end
-
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
 
 @interface NSMutableAttributedString (EasyToUse)
 

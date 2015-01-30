@@ -7,12 +7,15 @@
 //
 
 #import "NSAttributedString+EasyToUse.h"
+#import <CoreText/CoreText.h>
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
 
 #pragma mark - NSAttributedString
 
 @implementation NSAttributedString (EasyToUse)
 
-+ (id)attributedStringWithString:(NSString*)string
++ (instancetype)attributedStringWithString:(NSString*)string
 {
     if (string)
     {
@@ -24,7 +27,7 @@
     }
 }
 
-+ (id)attributedStringWithAttributedString:(NSAttributedString*)attrStr
++ (instancetype)attributedStringWithAttributedString:(NSAttributedString*)attrStr
 {
     if (attrStr)
     {
@@ -36,11 +39,33 @@
     }
 }
 
+- (CGSize)sizeConstrainedToSize:(CGSize)maxSize
+{
+    return [self sizeConstrainedToSize:maxSize fitRange:NULL];
+}
+
+- (CGSize)sizeConstrainedToSize:(CGSize)maxSize fitRange:(NSRange*)fitRange
+{
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self);
+    CGSize sz = CGSizeMake(0.f, 0.f);
+    if (framesetter)
+    {
+        CFRange fitCFRange = CFRangeMake(0,0);
+        sz = CTFramesetterSuggestFrameSizeWithConstraints(framesetter,CFRangeMake(0,0),NULL,maxSize,&fitCFRange);
+        sz = CGSizeMake( floor(sz.width+1) , floor(sz.height+1) ); // take 1pt of margin for security
+        CFRelease(framesetter);
+        
+        if (fitRange)
+        {
+            *fitRange = NSMakeRange((NSUInteger)fitCFRange.location, (NSUInteger)fitCFRange.length);
+        }
+    }
+    return sz;
+}
+
 @end
 
 #pragma mark - NSMutableAttributedString
-
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
 
 @implementation NSMutableAttributedString (EasyToUse)
 
@@ -120,6 +145,10 @@
                                               atIndex:loc
                                 longestEffectiveRange:rangePtr
                                               inRange:range];
+        if (!paraStyle)
+        {
+            paraStyle = [NSParagraphStyle defaultParagraphStyle];
+        }
         NSMutableParagraphStyle *mutableParaStyle = [paraStyle mutableCopy];
         block(mutableParaStyle);
         [self setParagraphStyle:mutableParaStyle range:*rangePtr];
